@@ -18,39 +18,39 @@ public class Exam2 {
 
 		FileOutputStream fos = new FileOutputStream("res/students2-out.data");
 		PrintWriter fout = new PrintWriter(fos);
-
+		
 		{
 			name = fscan.nextLine();
 			length = name.length();
 			result = (length == 3) ? name : "오류";
-			fout.print(result);
+			fout.println(result);
 		}
 
 		{
 			name = fscan.nextLine();
 			length = name.length();
 			result = (length == 3) ? name : "오류";
-			fout.print(result);
+			fout.println(result);
 		}
 
 		{
 			name = fscan.nextLine();
 			length = name.length();
 			result = (length == 3) ? name : "오류";
-			fout.print(result);
+			fout.println(result);
 		}
 
 		{
 			name = fscan.nextLine();
 			length = name.length();
 			result = (length == 3) ? name : "오류";
-			fout.print(result);
+			fout.println(result);
 		}
 		{
 			name = fscan.nextLine();
 			length = name.length();
 			result = (length == 3) ? name : "오류";
-			fout.print(result);
+			fout.println(result);
 		}
 
 		fout.close();

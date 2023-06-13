@@ -37,6 +37,14 @@ public class Exam1 {
 		System.out.printf("%d x %d", size, weight);
 
 		fis.close();
-
+		
+		for (int i =0; i <18; i++) {
+			System.out.println(i);
+		}
+		
+		for(int i=0; i<18; ++i) {
+			System.out.println(i);
+		}
+		
 	}
 }
