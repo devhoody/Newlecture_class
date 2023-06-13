@@ -29,6 +29,7 @@ public class Exam1 {
 
 		System.out.println(size);
 
+		System.out.println(size);
 		weight = n5 | n6 << 8 | n7 << 16 | n8 << 24;
 
 		System.out.println(weight);
