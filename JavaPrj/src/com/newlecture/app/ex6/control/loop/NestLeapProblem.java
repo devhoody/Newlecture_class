@@ -9,8 +9,10 @@
  * 내가 푼 방법 : 
  * 		이중 for문 이용.
  * 		index i j 이용.
+ *		j < i + 3 
  * 
- * 선생님 풀이 :
+ * 선생님 풀이 : 
+ * 		j < 3 + i
  */
 
 package com.newlecture.app.ex6.control.loop;
@@ -19,7 +21,7 @@ public class NestLeapProblem {
 
 	public static void main(String[] args) {
 		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < i + 3; j++)
+			for (int j = 0; j < 3 + i; j++)
 				System.out.printf("%d ", j + 1);
 			System.out.println();
 		}
