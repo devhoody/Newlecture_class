@@ -1,13 +1,16 @@
 /*
- * 문제 :1~10까지 피라미드식으로 출력하기 위해 10번 반복하는 코드를 작성하시오. 
+ * 문제 :1~6 까지 피라미드식으로 출력하기 위해 4번 반복하는 코드를 작성하시오. 
+ * 1 2 3
+ * 1 2 3 4
+ * 1 2 3 4 5 
+ * 1 2 3 4 5 6
  *
  * 푼날짜: 230616
  * 내가 푼 방법 : 
  * 		이중 for문 이용.
- * 		index 이용.
+ * 		index i j 이용.
  * 
  * 선생님 풀이 :
- * 		j< 1+i 로 풀이.
  */
 
 package com.newlecture.app.ex6.control.loop;
@@ -15,11 +18,13 @@ package com.newlecture.app.ex6.control.loop;
 public class NestLeapProblem {
 
 	public static void main(String[] args) {
-		for (int i = 0; i < 10; i++) {
-			for (int j = 0; j < 1+i; j++)
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < i + 3; j++)
 				System.out.printf("%d ", j + 1);
 			System.out.println();
 		}
+
+		System.out.println("------------------------------");
 	} // main end
 
 } // class end
