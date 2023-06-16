@@ -10,17 +10,22 @@ public class BreakContinueExam {
 		FileInputStream fis = new FileInputStream("res/exam.list");
 		Scanner fscan = new Scanner(fis);
 
-		//4. 파일에서 성적을 읽다가 두 번째 100점 이후의 성적을 모두 출력하시오.(100점 미포함)
-		
-		for(int i=0, n=1; fscan.hasNext(); i++, n++) {
+		// 5. 파일에서 성적을 읽다가 5번째에서 8번째까지의 숫자를 출력하라.
+		// 선생님 풀이
+
+		for (int i = 0; fscan.hasNext(); i++) {
 			String word = fscan.next();
 			int kor = Integer.valueOf(word);
-			
-			if(5<=n && n<=8) 
-				System.out.printf("%d ", kor);
-				
+
+			if (i < 4)
+				continue;
+
+			if (i == 8)
+				break;
+
+			System.out.printf("%d ", kor);
 		}
-		
+
 		fscan.close();
 		fis.close();
 
