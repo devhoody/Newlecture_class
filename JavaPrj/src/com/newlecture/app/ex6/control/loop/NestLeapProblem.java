@@ -6,6 +6,8 @@
  * 		이중 for문 이용.
  * 		index 이용.
  * 
+ * 선생님 풀이 :
+ * 		j< 1+i 로 풀이.
  */
 
 package com.newlecture.app.ex6.control.loop;
@@ -14,7 +16,7 @@ public class NestLeapProblem {
 
 	public static void main(String[] args) {
 		for (int i = 0; i < 10; i++) {
-			for (int j = 0; j <= i; j++)
+			for (int j = 0; j < 1+i; j++)
 				System.out.printf("%d ", j + 1);
 			System.out.println();
 		}
