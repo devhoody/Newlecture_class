@@ -52,20 +52,40 @@ public class OmokProgram {
 			System.out.println();
 		}
 		{
+			
 			int ox = -1;
 			int oy = -1;
-			
-			while(true) {
-				System.out.println("그만두기 : -1");
+
+			Scanner scan = new Scanner(System.in);
+//			boolean isOn=true;
+
+			while (true) {
+				System.out.println("그만두기 : -1 0");
 				System.out.print("x sp y : ");
-				
-				Scanner scan = new Scanner(System.in);
-				
+
+
 				ox = scan.nextInt();
+				if (ox == -1) {
+					System.out.println("프로그램종료");
+					break;
+					}
 				oy = scan.nextInt();
 				
-				if (ox == -1 || oy == -1)
-					break;
+//				!(1 <= ox && ox <= 10) || !(1 <= oy && oy <= 10)
+
+				while (!((1 <= ox && ox <= 10) && (1 <= oy && oy <= 10))) {
+					System.out.println("오목 좌표의 범위(-1 or 1~10)을 벗어났습니다.");
+					System.out.println("그만두기 : -1 0");
+					System.out.print("\t(x sp y > ");
+					ox = scan.nextInt();
+					if (ox == -1) {
+						System.out.println("프로그램종료");
+						break;
+					}
+					oy = scan.nextInt();
+
+				}
+
 				for (int j = 0; j < 12; j++) {
 					for (int i = 0; i < 12; i++)
 						if (i == 0 && j == 0)
@@ -90,10 +110,15 @@ public class OmokProgram {
 							System.out.print("┼");
 					System.out.println();
 				}
-				
 			}
-
 		}
 
 	} // main off
+
+	public static boolean isNum(int ox, int oy) {
+		boolean isNum1 = false;
+		if ((!(1 <= ox && ox <= 10) || !(1 <= oy && oy <= 10)))
+			isNum1 = true;
+		return isNum1;
+	}
 } // class off
