@@ -57,7 +57,8 @@ public class OmokProgram {
 
 				int ox = -1;
 				int oy = -1;
-
+				
+				
 				Scanner scan = new Scanner(System.in);
 //			boolean isOn=true;
 
