@@ -36,6 +36,7 @@ public class OmokProgram2 {
 
 			menu = scan.nextInt();
 			switch (menu) {
+
 			// 1.게임시작
 			case 1:
 
@@ -62,15 +63,13 @@ public class OmokProgram2 {
 							System.out.print("┼");
 					System.out.println();
 				}
-				GAMEOVER :
+				GAMEOVER: 
 				while (true) {
 
 					int ox = -1;
 					int oy = -1;
 
-
 					do {
-
 						System.out.println("그만두기 : -1 0");
 						System.out.print("x sp y : ");
 						ox = scan.nextInt();
@@ -111,7 +110,6 @@ public class OmokProgram2 {
 					}
 				}
 				break;
-				
 
 			// 2. 도움말
 			case 2: {
