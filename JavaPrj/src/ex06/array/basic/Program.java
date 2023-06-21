@@ -29,7 +29,6 @@ public class Program {
 		}
 
 		// nums 출력하기
-		// 100, 23,... 70,
 		{
 			for (int i = 0; i < size; i++) {
 				System.out.printf("%d, ", nums[i]);
@@ -46,24 +45,28 @@ public class Program {
 					break;
 				}
 			}
-
+			System.out.println();
 		}
 		// 값 바꾸기
 
 		{
-			int num_ = nums[0];
-			nums[0] = nums[index];
-			nums[index] = num_;
-//			for(int i=0; i<size; i++) {
-//				if(i == 0)
-//					nums[i] = nums[index];
-//				else if(i == index)
-//					nums[index] = num_;
+			int temp; // 선언
+			temp = nums[0]; // nums[0] -> num_
+			nums[0] = nums[index]; // nums[index] -> num[0]
+			nums[index] = temp; // num_ -> nums[index]
+
+		}
+		// index[0]<->90 nums 출력하기
+		{
+			for (int i = 0; i < size; i++) {
+				System.out.printf("%d, ", nums[i]);
+			}
+			System.out.println();
 		}
 
+		// 값 저장
 		{
-			// 값 저장
-			FileOutputStream fos = new FileOutputStream("res/array/data-out.txt");
+			FileOutputStream fos = new FileOutputStream("res/array/data.txt");
 			PrintWriter pw = new PrintWriter(fos);
 
 			for (int i = 0; i < size; i++) {
