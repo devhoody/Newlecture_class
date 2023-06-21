@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.Charset;
 import java.util.Scanner;
 
 public class Program {
@@ -11,8 +12,6 @@ public class Program {
 	public static void main(String[] args) throws IOException {
 		int[] nums = new int[100];
 		int size = 0;
-//		FileInputStream fis = new FileInputStream("res/array/data.txt");
-//		Scanner scan = new Scanner(fis);
 
 		// 값 로드하기
 		{
@@ -64,14 +63,13 @@ public class Program {
 			System.out.println();
 		}
 
-		// 값 저장
+		// data.txt에 값 저장
 		{
 			FileOutputStream fos = new FileOutputStream("res/array/data.txt");
-			PrintWriter pw = new PrintWriter(fos);
+			PrintWriter pw = new PrintWriter(fos, true, Charset.forName("UTF-8"));
 
-			for (int i = 0; i < size; i++) {
+			for (int i = 0; i < size; i++)
 				pw.printf("%d ", nums[i]);
-			}
 
 			pw.flush();
 
