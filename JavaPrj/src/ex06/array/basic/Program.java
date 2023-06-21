@@ -13,53 +13,65 @@ public class Program {
 		int size = 0;
 //		FileInputStream fis = new FileInputStream("res/array/data.txt");
 //		Scanner scan = new Scanner(fis);
-				
-		// 값 로드하기 
+
+		// 값 로드하기
 		{
 			FileInputStream fis = new FileInputStream("res/array/data.txt");
 			Scanner scan = new Scanner(fis);
-			
-			for(int i=0; scan.hasNext(); i++) {
+
+			for (int i = 0; scan.hasNext(); i++) {
 				nums[i] = scan.nextInt();
-				size ++;
+				size++;
 			}
-			
+
 			scan.close();
 			fis.close();
 		}
-		
+
 		// nums 출력하기
 		// 100, 23,... 70,
-		{	
-			for(int i=0; i < size; i++)  {
+		{
+			for (int i = 0; i < size; i++) {
 				System.out.printf("%d, ", nums[i]);
 			}
 			System.out.println();
 		}
 		// 위치 찾기
+		int index = -1;
 		{
-			for(int i=0; i< size; i++) {
-				if(nums[i] == 90)
-					System.out.printf("90의 인덱스 : %d", i);
+			for (int i = 0; i < size; i++) {
+				if (nums[i] == 90) {
+					index = i;
+					System.out.printf("90의 인덱스 : %d", index);
+					break;
+				}
 			}
-			
+
 		}
-		// 값 바꾸기 
+		// 값 바꾸기
+
 		{
-			nums[0] = 90;
-			nums[5] = 100;
+			int num_ = nums[0];
+			nums[0] = nums[index];
+			nums[index] = num_;
+//			for(int i=0; i<size; i++) {
+//				if(i == 0)
+//					nums[i] = nums[index];
+//				else if(i == index)
+//					nums[index] = num_;
 		}
+
 		{
-		// 값 저장
+			// 값 저장
 			FileOutputStream fos = new FileOutputStream("res/array/data-out.txt");
 			PrintWriter pw = new PrintWriter(fos);
-			
-			for(int i =0; i<size; i++) {
+
+			for (int i = 0; i < size; i++) {
 				pw.printf("%d ", nums[i]);
 			}
-			
+
 			pw.flush();
-			
+
 			pw.close();
 			fos.close();
 		}
