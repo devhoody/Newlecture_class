@@ -66,16 +66,24 @@ public class Program {
 		// 제일 큰 값 찾기
 		{
 			int max = nums[0];
-			
+
 			// 반복횟수 : size -1
-			for(int i=0; i<size-1; i++) {
-				if(max < nums[i+1])
-					max = nums[i+1];
+			for (int i = 0; i < size - 1; i++) {
+				if (max < nums[i + 1])
+					max = nums[i + 1];
 			}
 			System.out.printf("max : %d\n", max);
-			
 		}
-		
+
+		// 자리바꾸기 방식으로 큰 값을 찾기
+		{
+			for (int i = 0; i < size - 1; i++) {
+				if (nums[i] > nums[i + 1])
+					nums[i + 1] = nums[i];
+			}
+			System.out.printf("max : %d\n", nums[size - 1]);
+		}
+
 		// data.txt에 값 저장
 		{
 			FileOutputStream fos = new FileOutputStream("res/array/data-out.txt");
@@ -89,8 +97,7 @@ public class Program {
 			pw.close();
 			fos.close();
 		}
-		
-		
+
 	}
 
 }
