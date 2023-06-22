@@ -119,8 +119,8 @@ public class Program {
 		
 		// 버블 정렬
 		{
-			for(int j =size-1; j>0; j--) {
-				for(int i =0; i<j; i++) {
+			for(int j =0; j<size-1; j--) {
+				for(int i =0; i<size-1-j; i++) {
 					if (nums[i] > nums[i + 1]) {
 						int temp = nums[i+1]; // 선언을 최소한으로 줄이기 위해 if 문 안으로 넣음.
 						nums[i + 1] = nums[i];
