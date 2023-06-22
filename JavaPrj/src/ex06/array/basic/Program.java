@@ -78,10 +78,26 @@ public class Program {
 		// 자리바꾸기 방식으로 큰 값을 찾기
 		{
 			for (int i = 0; i < size - 1; i++) {
-				if (nums[i] > nums[i + 1])
+				
+				if (nums[i] > nums[i + 1]) {
+					int temp = nums[i+1]; // 선언을 최소한으로 줄이기 위해 if 문 안으로 넣음.
 					nums[i + 1] = nums[i];
+					nums[i] = temp;
+				}
 			}
 			System.out.printf("max : %d\n", nums[size - 1]);
+		}
+		
+		//자리바꾸기 방식으로 최소값 찾기 
+		{
+			int temp= 0;
+			for (int i = 0; i < size - 1; i++) {
+				
+				if (nums[i] < nums[i + 1]) {
+					nums[i+1] = nums[i];
+				}
+			}
+			System.out.printf("min : %d\n", nums[size - 1]);
 		}
 
 		// data.txt에 값 저장
