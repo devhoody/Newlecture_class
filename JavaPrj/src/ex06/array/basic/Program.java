@@ -29,9 +29,9 @@ public class Program {
 
 		// nums 출력하기
 		{
-			for (int i = 0; i < size; i++) {
+			for (int i = 0; i < size; i++) 
 				System.out.printf("%d, ", nums[i]);
-			}
+			
 			System.out.println();
 		}
 		// 위치 찾기
@@ -57,9 +57,9 @@ public class Program {
 		}
 		// index[0]<->90 nums 출력하기
 		{
-			for (int i = 0; i < size; i++) {
+			for (int i = 0; i < size; i++) 
 				System.out.printf("%d, ", nums[i]);
-			}
+			
 			System.out.println();
 		}
 
@@ -87,15 +87,32 @@ public class Program {
 			}
 			System.out.printf("max : %d\n", nums[size - 1]);
 		}
+		System.out.println("--------------------------------------");
+		// 출력 
+		{
+			for (int i = 0; i < size; i++) 
+				System.out.printf("%d, ", nums[i]);
+			
+			System.out.println();
+		}
+		
+		// 최솟값의 인덱스 찾기 
+		{
+			int minIndex = 0;
+			for (int i=0; i< size -1; i++) {
+				if(nums[minIndex]>nums[i+1]) 
+					minIndex = i+1;
+			}
+			System.out.printf("min index : %d\n", minIndex);
+		}
 		
 		//자리바꾸기 방식으로 최소값 찾기 
 		{
 			int temp= 0;
 			for (int i = 0; i < size - 1; i++) {
 				
-				if (nums[i] < nums[i + 1]) {
+				if (nums[i] < nums[i + 1])
 					nums[i+1] = nums[i];
-				}
 			}
 			System.out.printf("min : %d\n", nums[size - 1]);
 		}
