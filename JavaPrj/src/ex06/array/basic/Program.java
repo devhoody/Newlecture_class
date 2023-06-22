@@ -63,9 +63,22 @@ public class Program {
 			System.out.println();
 		}
 
+		// 제일 큰 값 찾기
+		{
+			int max = nums[0];
+			
+			// 반복횟수 : size -1
+			for(int i=0; i<size-1; i++) {
+				if(max < nums[i+1])
+					max = nums[i+1];
+			}
+			System.out.printf("max : %d\n", max);
+			
+		}
+		
 		// data.txt에 값 저장
 		{
-			FileOutputStream fos = new FileOutputStream("res/array/data.txt");
+			FileOutputStream fos = new FileOutputStream("res/array/data-out.txt");
 			PrintWriter pw = new PrintWriter(fos, true, Charset.forName("UTF-8"));
 
 			for (int i = 0; i < size; i++)
@@ -76,6 +89,8 @@ public class Program {
 			pw.close();
 			fos.close();
 		}
+		
+		
 	}
 
 }
