@@ -130,13 +130,15 @@ public class Program {
 
 		// 선택 정렬
 		{
-			int minIndex = 0;
+//			int minIndex = 0;
 //			for(int j=0, minIndex = 0 ; j<size -1 && minIndex < size -1; j++, minIndex++) {
 			for (int j = 0; j < size - 1; j++) {
-				minIndex++;
+				int minIndex = j;
+				
 				for (int i = 0; i < size - 1 - j; i++)
-					if (nums[minIndex] > nums[i + j])
-						minIndex = i + j;
+					if (nums[minIndex] > nums[i +1 +j])
+						minIndex = i + 1 +j;
+				
 				int temp = nums[j];
 				nums[j] = nums[minIndex];
 				nums[minIndex] = temp;
