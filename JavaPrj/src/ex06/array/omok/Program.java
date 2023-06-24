@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Program {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		/*
 		 * ┌┬┬┬┬┬┬┬┬┬┬┐ 
 		 * ├┼┼┼┼┼┼┼┼┼┼┤ 
@@ -51,7 +50,8 @@ public class Program {
 					board[y][x] = '┴';
 			}
 		}
-
+		boolean onDark = true;
+		
 		while (true) {
 			// 흑돌 입력
 			do {
@@ -65,8 +65,9 @@ public class Program {
 				if ((oy < 0 || 11 < oy) || (ox < 0 || 11 < ox)) {
 					System.out.println("값의 범위는 0~11사이로 입력바랍니다.");
 				}
-
-			} while ((board[oy][ox] == '백') || (oy < 0 || 11 < oy) || (ox < 0 || 11 < ox));
+				
+				onDark = (board[oy][ox] == '백') || (oy < 0 || 11 < oy) || (ox < 0 || 11 < ox);
+			} while (onDark);
 
 			board[oy][ox] = '흑';
 
@@ -76,7 +77,8 @@ public class Program {
 					System.out.printf("%c", board[y][x]);// [j][i]
 				System.out.println();
 			}
-
+			boolean onWhite = true;
+			
 			// 백돌 입력
 			do {
 				System.out.println("백돌 > ");
@@ -90,7 +92,9 @@ public class Program {
 				if ((oy < 0 || 11 < oy) || (ox < 0 || 11 < ox)) {
 					System.out.println("값의 범위는 0~11사이로 입력바랍니다.");
 				}
-			} while ((board[oy][ox] == '흑') || (oy < 0 || 11 < oy) || (ox < 0 || 11 < ox));
+				
+				onWhite = (board[oy][ox] == '흑') || (oy < 0 || 11 < oy) || (ox < 0 || 11 < ox);
+			} while (onWhite);
 
 			board[oy][ox] = '백';
 
