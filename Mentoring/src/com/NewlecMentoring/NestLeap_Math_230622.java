@@ -1,6 +1,6 @@
 package com.NewlecMentoring;
 
-public class NestLeap_math_230622 {
+public class NestLeap_Math_230622 {
 
 	public static void main(String[] args) {
 		/*
