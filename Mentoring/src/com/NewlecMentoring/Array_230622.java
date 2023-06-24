@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Array_230622 {
@@ -95,18 +96,26 @@ public class Array_230622 {
 			}
 
 			// 3. 0~14 범위의 랜덤값 2개를 얻어서 그 위치의 값을 서로 바꾼다. 그것을 50번 반복한다.
+			System.out.println("---------------------------------------------------");
+			{
+				Random rand = new Random();
+				
+				int num1 = rand.nextInt(14);
+				int num2 = rand.nextInt(14);
+				
+				System.out.printf("0~14범위 두 정수의 초기 값 : %d %d\n", num1, num2);
+				for(int i=0; i<50; i++) {
+					int temp = num1;
+					num1 = num2;
+					num2 = temp;
+					System.out.printf("%d번 바꾸기 완료 : %d <-> %d\n", i+1, num1, num2);
+				}
 
-//			{
-//			     // 코드를 작성하는 공간
-//				int num1 = 0;
-//				int num2 = 0;
-//				
-//				for(int i=0; i<size; i++) {
-//					
-//				}
-//
-//				System.out.println("저장 완료");
-//			}
+				System.out.println("저장 완료");
+			}
+			
+			System.out.println("---------------------------------------------------");
+
 
 			// 4. res/data-out.txt 파일로 배열의 값들을 저장
 			{
