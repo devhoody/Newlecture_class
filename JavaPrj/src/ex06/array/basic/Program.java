@@ -132,33 +132,22 @@ public class Program {
 		{
 //			int minIndex = 0;
 //			for(int j=0, minIndex = 0 ; j<size -1 && minIndex < size -1; j++, minIndex++) {
+			
+
 			for (int j = 0; j < size - 1; j++) {
 				int minIndex = j;
 				
-				for (int i = 0; i < size - 1 - j; i++)
-					if (nums[minIndex] > nums[i +1 +j])
-						minIndex = i + 1 +j;
+				for (int i = 0; i < size - 1 - j; i++)  
+					if (nums[minIndex] > nums[i +1 + j]) 
+						minIndex = i + 1 + j;
 				
 				int temp = nums[j];
 				nums[j] = nums[minIndex];
 				nums[minIndex] = temp;
+				
 			}
 
 //			System.out.printf("min index : %d\n", minIndex);
-		}
-		{
-			int j = 1;
-			int minIndex = 1;
-
-			for (int i = 0; i < size - 2; i++)
-				if (nums[minIndex] > nums[i + 2])
-					minIndex = i + 2;
-
-			int temp = nums[j];
-			nums[j] = nums[minIndex];
-			nums[minIndex] = temp;
-
-			System.out.printf("min index : %d\n", minIndex);
 		}
 
 		// 자리바꾸기 방식으로 최소값 찾기
