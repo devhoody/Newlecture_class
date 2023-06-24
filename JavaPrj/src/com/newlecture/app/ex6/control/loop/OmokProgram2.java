@@ -74,6 +74,7 @@ public class OmokProgram2 {
 						System.out.print("x sp y : ");
 						ox = scan.nextInt();
 						oy = scan.nextInt();
+						
 						if (ox == -1) {
 							System.out.println("GAMEOVER");
 							break GAMEOVER;
@@ -112,16 +113,15 @@ public class OmokProgram2 {
 				break;
 
 			// 2. 도움말
-			case 2: {
+			case 2: 
 				System.out.println("도움말");
 				break;
-			}
 
 			// 3. 종료
-			case 3: {
+			case 3: 
 				System.out.println("종료");
 				return;
-			}
+			
 
 			default:
 				System.out.println("입력 값은 1~3안으로 입력해주세요.");
