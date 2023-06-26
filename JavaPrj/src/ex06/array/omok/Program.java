@@ -30,7 +30,14 @@ public class Program {
 		int width = 12;
 		int height = 12;
 		
+		final int BLACK_STONE = 0;
+		final int WHITE_STONE = 1;
+		
+		int turn =BLACK_STONE;
+		
 		char[][] board = new char[height][width];
+		
+		board[oy][ox] = (turn == BLACK_STONE)? '흑' : '백';
 		
 		for (int y = 0; y < height; y++) 
 			for (int x = 0; x < width; x++) {
@@ -61,6 +68,7 @@ public class Program {
 					System.out.println("값의 범위는 0~11사이로 입력바랍니다.");
 				
 				onDark = (board[oy][ox] == '백') || (oy < 0 || 11 < oy) || (ox < 0 || 11 < ox);
+
 			} while (onDark);
 
 			board[oy][ox] = '흑';
