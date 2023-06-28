@@ -33,6 +33,11 @@ public class ExamProgram_230622 {
 
 			int menu = scan.nextInt();
 
+			if (menu <= 0 && 4 < menu && menu != 9) {
+				System.out.println("menu의 입력값은 1~4, 9 입니다.");
+				continue;
+			}
+
 			switch (menu) {
 
 			case 1:
@@ -51,10 +56,6 @@ public class ExamProgram_230622 {
 					System.out.println("국어 성적을 입력하세요.");
 					System.out.println("수학 성적을 입력하세요.");
 					System.out.println("영어 성적을 입력하세요.");
-//						for(int i=0; i<size; i++) {
-//							scores[i] = scan.nextInt();
-//							onScores[i] = (scores[i]<0 || 100 < scores[i]);
-//						}
 
 					kor = scan.nextInt();
 					math = scan.nextInt();
@@ -69,7 +70,7 @@ public class ExamProgram_230622 {
 
 					onScores = (onKor || onMath || onEng);
 
-					if (onScores)
+					if ((kor < 0 || 100 < kor) || (math < 0 || 100 < math) || (eng < 0 || 100 < eng))
 						System.out.println("성적의 범위(0~100)을 벗어났습니다");
 
 				} while (onScores);
@@ -131,7 +132,7 @@ public class ExamProgram_230622 {
 				System.out.printf("국어 : %d 수학 : %d 영어 : %d", kor, math, eng);
 				pw.printf("%d ", kor);
 				pw.printf("%d ", math);
-				pw.printf("%d ", eng);
+				pw.printf("%d", eng);
 
 				System.out.println();
 
