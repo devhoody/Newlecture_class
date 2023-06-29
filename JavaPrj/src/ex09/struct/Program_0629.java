@@ -11,7 +11,7 @@ public class Program_0629 {
 
 	public static void main(String[] args) throws IOException {
 
-		Exam_0629[] exams = new Exam_0629[20]; // exams[0],exams[1]... exams[19]까지의 20개 이름표생성
+		Exam[] exams = new Exam[20]; // exams[0],exams[1]... exams[19]까지의 20개 이름표생성
 		int index = 0;
 		{
 			FileInputStream fis = new FileInputStream("res/ex09/exam.data");
@@ -21,7 +21,7 @@ public class Program_0629 {
 
 			while (fscan.hasNextLine()) // 마지막 줄까지 읽어오기
 			{
-				Exam_0629 exam = new Exam_0629(); // Exam exam : 한번 만들어짐. while문 들어오기 전에 한번 생성
+				Exam exam = new Exam(); // Exam exam : 한번 만들어짐. while문 들어오기 전에 한번 생성
 													// new Exam() : while 문 돌때마다 객체(공간)을 만들어 준다.
 
 				String line = fscan.nextLine();
@@ -45,7 +45,7 @@ public class Program_0629 {
 
 			// exam, kor ,eng, math변수를 선언하여 print문의 가시성을 높인다.
 			for (int i = 0; i < size; i++) {
-				Exam_0629 exam = exams[i];
+				Exam exam = exams[i];
 
 				int kor = exam.kor;
 				int eng = exam.eng;
