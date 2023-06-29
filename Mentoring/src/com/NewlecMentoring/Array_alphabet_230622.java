@@ -20,13 +20,11 @@ public class Array_alphabet_230622 {
 			{
 				FileInputStream fis = new FileInputStream("res/alphabet.txt");
 				
-				for(int i=0; i<alphabet.length; i++) {
+				for(int i=0; i<size; i++) {
 					alphabet[i] = (char)fis.read();
 					System.out.printf("%c ", alphabet[i]);
 				}
-				
 				System.out.println();
-				
 				System.out.println("로드 완료");
 				
 				fis.close();
@@ -36,10 +34,9 @@ public class Array_alphabet_230622 {
 			//		    nmlkjihgfedcba
 			
 			{
-				char temp = 'a';
 				for(int i=0; i<size -1; i++)
 					for(int j=0; j<size -1 -i; j++) {
-						temp = alphabet[j+1];
+						char temp = alphabet[j+1];
 						alphabet[j+1] = alphabet[j];
 						alphabet[j] = temp;
 					}
