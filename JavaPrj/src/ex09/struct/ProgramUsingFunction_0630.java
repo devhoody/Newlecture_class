@@ -10,43 +10,56 @@ public class ProgramUsingFunction_0630 {
 
 	public static void main(String[] args) throws IOException {
 		ExamList list = new ExamList();
-		
-	
-		
-		
-		
+
 		// 성적 로드
 		{
 			road(list);
 		}
-		
-		// 성적 정렬 
+
+		// 성적 정렬
 		{
 			sort(list);
 		}
-		
+
 		// 성적 출력
 		{
 			print(list);
+			print(list, 3);
+
+			int result = sum(10);
+			System.out.printf("sum is %d\n", result);
 		}
 	}
 
-	private static void print(ExamList list) {
+	private static int sum(int n) {
+
+		if (n == 0)
+			return 0;
+
+		return n += sum(n - 1);
+	}
+
+	private static void print(ExamList list, int limit) {
 		Exam[] exams = list.exams;
-		int size = list.index;
+		int size = limit;
 		// exam[] -> exam 객체 변환 후 출력 .
 		for (int i = 0; i < size; i++) {
 			Exam exam = exams[i];
 			int kor = exam.kor;
 			int eng = exam.eng;
 			int math = exam.math;
-			
+
 			int total = kor + eng + math;
 			float avg = total / 3.0f;
-			
-			System.out.printf("%d등 : %d \t %d \t %d \t %d \t %.2f \n", i+1, kor, eng, math, total, avg);
+
+			System.out.printf("%d등 : %d \t %d \t %d \t %d \t %.2f \n", i + 1, kor, eng, math, total, avg);
 		}
-		
+
+	}
+
+	private static void print(ExamList list) {
+		int size = list.index;
+		print(list, size);
 	}
 
 	private static void sort(ExamList list) {
@@ -62,27 +75,26 @@ public class ProgramUsingFunction_0630 {
 				}
 			}
 		}
-		
 	}
 
 	private static void road(ExamList list) throws IOException {
-		
+
 		Exam[] exams = new Exam[20]; // exams[0],exams[1]... exams[19]까지의 20개 이름표생성
 		int index = 0;
 
 		{
 			FileInputStream fis = new FileInputStream("res/ex09/exam.data");
 			Scanner fscan = new Scanner(fis);
-			
+
 			list.exams = new Exam[20];
 			list.index = 0;
-			
+
 			fscan.nextLine(); // 맨 윗줄날리기
 
 			while (fscan.hasNextLine()) // 마지막 줄까지 읽어오기
 			{
 				Exam exam = new Exam(); // Exam exam : 한번 만들어짐. while문 들어오기 전에 한번 생성
-													// /new Exam() : while 문 돌때마다 객체(공간)을 만들어 준다.
+										// /new Exam() : while 문 돌때마다 객체(공간)을 만들어 준다.
 
 				String line = fscan.nextLine();
 				String[] tokens = line.split(",");
@@ -102,7 +114,7 @@ public class ProgramUsingFunction_0630 {
 
 			list.exams = exams;
 			list.index = index;
-	} // main off
+		} // main off
 
 	}
 
