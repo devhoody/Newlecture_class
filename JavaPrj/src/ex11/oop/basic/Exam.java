@@ -2,14 +2,21 @@ package ex11.oop.basic;
 
 public class Exam {
 //	static int aa; // 전역변수 
-	int kor; // 공간 x -> 설계도!!
-	int eng;
-	int math;
+	// 변수 은닉화
+	private int kor; // 공간 x -> 설계도!!
+	private int eng;
+	private int math;
 
+	// 기본 생성자
 	public Exam() {
-		kor = 10;
-		eng = 100;
-		math = 100;
+		this(3, 4, 5);
+	}
+
+	// 생성자 오버로드
+	public Exam(int kor, int eng, int math) {
+		this.kor = kor;
+		this.eng = eng;
+		this.math = math;
 	}
 
 	public void print() {
