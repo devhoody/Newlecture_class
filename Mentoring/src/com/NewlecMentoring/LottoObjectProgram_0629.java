@@ -9,13 +9,16 @@ import java.nio.charset.Charset;
 import java.util.Random;
 import java.util.Scanner;
 
-public class LottoProgram_0628 {
+public class LottoObjectProgram_0629 {
 
 	public static void main(String[] args) throws IOException {
-
-		int[] lotto = new int[6];
-
+		
+		Lotto lotto = new Lotto();
+		
+		lotto.nums = new int[6];
+		
 		while (true) {
+
 			int menu = PrintMenu();
 
 			switch (menu) {
@@ -43,19 +46,14 @@ public class LottoProgram_0628 {
 		}
 	} // main off
 
-	private static int[] createLotto() {
-
-		return null;
-	}
-
-	private static void CheckLotto(int[] lotto) throws IOException {
+	private static void CheckLotto(Lotto lotto) throws IOException {
 		// 로또 번호 확인
 		FileInputStream fis = new FileInputStream("res/lotto.txt");
 		Scanner fscan = new Scanner(fis);
 
 		for (int i = 0; i < 6; i++) {
-			lotto[i] = fscan.nextInt();
-			System.out.printf("%d ", lotto[i]);
+			lotto.nums[i] = fscan.nextInt();
+			System.out.printf("%d ", lotto.nums[i]);
 		}
 
 		System.out.println();
@@ -79,15 +77,13 @@ public class LottoProgram_0628 {
 		return menu;
 	}
 
-	private static void ManualMakeLotto(int[] lotto) throws IOException {
+	private static void ManualMakeLotto(Lotto lotto) throws IOException {
 		// 수동 생성
 		Scanner scan = new Scanner(System.in);
 		boolean inLotto = false;
-		
-		
+
 		do {
 			inLotto = false;
-			
 			System.out.println("┌──────────────┐");
 			System.out.println("│      Lotto 번호 수동 생성         │");
 			System.out.println("└──────────────┘");
@@ -97,30 +93,25 @@ public class LottoProgram_0628 {
 
 			// strArr -> lotto 입력
 			String[] strArr = arr.split(" ");
-			
-			if(!(strArr.length==6)) {
-				System.out.printf("입력하신숫자 개수는 %d개입니다. 6개를 입력해주세요.	\n", strArr.length);
-				continue;
-			}
-			
+
 			for (int i = 0; i < 6; i++) {
-				lotto[i] = Integer.parseInt(strArr[i]);
-				if (lotto[i] < 1 || 45 < lotto[i]) {
-					System.out.printf("입력한 %d의 값은 1~45이외의 수 입니다.\n", lotto[i]);
+				lotto.nums[i] = Integer.parseInt(strArr[i]);
+				if (lotto.nums[i] < 1 || 45 < lotto.nums[i]) {
+					System.out.printf("입력한 %d의 값은 1~45이외의 수 입니다.\n", lotto.nums[i]);
 					System.out.println("다시 입력해주세요.");
 					inLotto = true;
 				}
 			}
-
+			
 			// 겹치면 false;
-			for (int j = 0; j < 5; j++)
-				for (int i = j; i < 5; i++) {
-					if (lotto[j] == lotto[i + 1]) {
-						System.out.println("입력한 값이 겹칩니다.");
+			for (int j=0; j<5; j++)
+				for (int i = 0+j; i < 5; i++) {
+					if (lotto.nums[j] == lotto.nums[i+1]) {
+						System.out.println("숫자가 겹칩니다. 다시 입력해주세요.");
 						inLotto = true;
 					}
 				}
-
+			
 		} while (inLotto);
 
 		// 수동 메뉴
@@ -130,7 +121,7 @@ public class LottoProgram_0628 {
 
 		// 수동 로또 출력
 		for (int i = 0; i < 6; i++) {
-			System.out.printf("%d ", lotto[i]);
+			System.out.printf("%d ", lotto.nums[i]);
 		}
 
 		System.out.println();
@@ -150,7 +141,7 @@ public class LottoProgram_0628 {
 			PrintWriter pw = new PrintWriter(fos, true, Charset.forName("UTF-8"));
 
 			for (int i = 0; i < 6; i++)
-				pw.printf("%d ", lotto[i]);
+				pw.printf("%d ", lotto.nums[i]);
 
 			pw.close();
 		case 2:
@@ -161,7 +152,7 @@ public class LottoProgram_0628 {
 
 	}
 
-	private static void AutoMakeLotto(int[] lotto) throws IOException {
+	private static void AutoMakeLotto(Lotto lotto) throws IOException {
 
 		Scanner scan = new Scanner(System.in);
 		Random rand = new Random();
@@ -170,12 +161,12 @@ public class LottoProgram_0628 {
 
 			// 번호생성
 			for (int i = 0; i < 6; i++) {
-				lotto[i] = rand.nextInt(45) + 1; // 1~45 6개 번호 추출
+				lotto.nums[i] = rand.nextInt(45) + 1; // 1~45 6개 번호 추출
 
 				for (int j = 0; j < i; j++) {
 					// 중복 체크
-					if (lotto[i] == lotto[j]) {
-						System.out.printf("lotto 번호가 중복되었습니다. ==> %d", lotto[i]);
+					if (lotto.nums[i] == lotto.nums[j]) {
+						System.out.printf("lotto 번호가 중복되었습니다. ==> %d", lotto.nums[i]);
 						i--;
 						continue;
 					}
@@ -186,10 +177,10 @@ public class LottoProgram_0628 {
 			// 자동 로또 정렬
 			for (int j = 0; j < 5; j++)
 				for (int i = 0; i < 5 - j; i++)
-					if (lotto[i] > lotto[i + 1]) {
-						int temp = lotto[i];
-						lotto[i] = lotto[i + 1];
-						lotto[i + 1] = temp;
+					if (lotto.nums[i] > lotto.nums[i + 1]) {
+						int temp = lotto.nums[i];
+						lotto.nums[i] = lotto.nums[i + 1];
+						lotto.nums[i + 1] = temp;
 					}
 
 			System.out.println("┌────────────────┐");
@@ -198,7 +189,7 @@ public class LottoProgram_0628 {
 
 			// 배열 출력
 			for (int i = 0; i < 6; i++)
-				System.out.printf("%d ", lotto[i]);
+				System.out.printf("%d ", lotto.nums[i]);
 			System.out.println();
 
 			System.out.println("1. 저장하고 메인메뉴로 가기");
@@ -214,7 +205,7 @@ public class LottoProgram_0628 {
 				PrintWriter pw = new PrintWriter(fos, true, Charset.forName("UTF-8"));
 
 				for (int i = 0; i < 6; i++)
-					pw.printf("%d ", lotto[i]);
+					pw.printf("%d ", lotto.nums[i]);
 				pw.println();
 
 				pw.close();
