@@ -1,18 +1,21 @@
 package ex17.oop.abst.custom;
 /*
  * 0710
- * 인터페이스
+ *추상화 커스텀 
  */
-
 
 import java.util.Scanner;
 
-public class ExamConsole {
+public abstract class ExamConsole {
 
-	private Exam exam; //= new Exam(); // has a 상속관계 : A가 B를 갖고있다.
+	private Exam exam; // = new Exam(); // has a 상속관계 : A가 B를 갖고있다.
 
 	public void setExam(Exam exam) {
 		this.exam = exam;
+	}
+
+	public Exam getExam() {
+		return exam;
 	}
 
 	public void input() {
@@ -37,12 +40,22 @@ public class ExamConsole {
 
 	public void print() {
 
+		printBanner();
+
 		int kor = exam.getKor();
 		int eng = exam.getEng();
 		int math = exam.getMath();
 
-		System.out.printf("kor:%d, eng:%d, math:%d\n", kor, eng, math);
+		System.out.printf("kor:%d\n", kor);
+		System.out.printf("eng:%d\n", eng);
+		System.out.printf("math:%d\n", math);
+
+		printEx();
 
 	}
+
+	public abstract void printBanner();
+
+	public abstract void printEx();
 
 }

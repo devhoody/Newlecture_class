@@ -1,7 +1,7 @@
 package ex17.oop.abst.custom;
 /*
  *  0710
- *	 인터페이스
+ *	 추상화 커스텀 
  */
 
 public class NewExam extends Exam {
