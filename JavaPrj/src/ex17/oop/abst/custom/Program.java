@@ -15,6 +15,8 @@ public class Program {
 		console.setExam(exam);
 		console.print();
 
+		console.printEx();
+
 	}
 
 }

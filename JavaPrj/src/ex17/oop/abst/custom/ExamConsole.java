@@ -54,8 +54,12 @@ public abstract class ExamConsole {
 
 	}
 
-	public abstract void printBanner();
+	protected void printBanner() {
+		System.out.println("┌────────────┐");
+		System.out.println("│      성적출력         │");
+		System.out.println("└────────────┘");
+	}
 
-	public abstract void printEx();
+	protected abstract void printEx();
 
 }
