@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class Exam {
+public abstract class Exam {
 //	static int aa; // 전역변수 
 	// 변수 은닉화
 	private int kor; // 공간 x -> 설계도!!
@@ -33,9 +33,7 @@ public class Exam {
 		return kor + eng + math;
 	}
 
-	public float avg() {
-		return kor + eng + math / 3.0f;
-	}
+	public abstract float avg();
 
 	public void save(String fileName) throws IOException {
 		String path = "res/ex11/" + fileName;
