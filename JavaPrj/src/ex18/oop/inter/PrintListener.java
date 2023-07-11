@@ -1,13 +1,13 @@
 package ex18.oop.inter;
 /*
  *  0711
- *	 인터페이스 
+ *	 인터페이스 - 다중상속 
  */
 
-public interface PrintListener {
+public interface PrintListener extends ExPrinter, BannerPrinter{
 
-	void printBanner();
+//	void printBanner();
 
-	void printEx();
+//	void printEx();
 
 }

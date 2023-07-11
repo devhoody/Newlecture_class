@@ -4,7 +4,7 @@ package ex18.oop.inter;
  *	 인터페이스 
  */
 
-public class NewExam extends Exam implements PrintListener{
+public class NewExam extends Exam implements PrintListener {
 	private int com;
 
 	public NewExam() {
@@ -38,15 +38,27 @@ public class NewExam extends Exam implements PrintListener{
 
 	@Override
 	public void printBanner() {
-		System.out.println("뉴렉고등학교 성적표");
-
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void printEx() {
-		System.out.printf("com:%d\n", com);
+		// TODO Auto-generated method stub
 		
 	}
+
+//	@Override
+//	public void printBanner() {
+//		System.out.println("뉴렉고등학교 성적표");
+//
+//		
+//	}
+//
+//	@Override
+//	public void printEx() {
+//		System.out.printf("com:%d\n", com);
+//		
+//	}
 
 }

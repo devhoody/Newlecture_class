@@ -45,7 +45,7 @@ public class ExamConsole {
 	}
 
 	public void print() {
-
+		
 		printListener.printBanner();
 
 		int kor = exam.getKor();
