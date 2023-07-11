@@ -35,36 +35,49 @@ public class Program {
 //			
 //		}
 
-//		PrintListener printListener = new PrintListener() {
-//
-//			@Override
-//			public void printBanner() {
-//				System.out.println("뉴렉고등학교 성적표!");
-//			}
-//
-//			@Override
-//			public void printEx() {
-//				NewExam exam1 = (NewExam)exam;
-//				System.out.printf("com:%d\n", exam1.getCom());
-//			}
-//			
-//		};
-
-		console.setPrintListener(new PrintListener() {
+		PrintListener printListener = new PrintListener() {
 
 			@Override
 			public void printBanner() {
-				System.out.println("뉴렉고등학교 성적표!!");
-
+				System.out.println("뉴렉고등학교 성적표!");
 			}
 
 			@Override
 			public void printEx() {
-				NewExam exam1 = (NewExam) exam;
+				NewExam exam1 = (NewExam)exam;
 				System.out.printf("com:%d\n", exam1.getCom());
 			}
+			
+		};
+		
+		ExPrinter exPrinter = new ExPrinter() {
 
-		});
+			@Override
+			public void printEx() {
+				NewExam exam1 = (NewExam)exam;
+				System.out.printf("com11:%d\n", exam1.getCom());
+			}
+			
+		};
+
+//		console.setPrintListener(new PrintListener() {
+//
+//			@Override
+//			public void printBanner() {
+//				System.out.println("뉴렉고등학교 성적표!!");
+//
+//			}
+//
+//			@Override
+//			public void printEx() {
+//				NewExam exam1 = (NewExam) exam;
+//				System.out.printf("com:%d\n", exam1.getCom());
+//			}
+//
+//		});
+//		
+		console.setExPrinter(printListener);
+		console.setExPrinter(exPrinter);
 		console.setExam(exam);
 		console.print();
 

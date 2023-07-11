@@ -9,8 +9,20 @@ import java.util.Scanner;
 public class ExamConsole {
 
 	private Exam exam; // = new Exam(); // has a 상속관계 : A가 B를 갖고있다.
+	
 
 	private PrintListener printListener;
+	private BannerPrinter bannerPrinter;
+	private ExPrinter exPrinter;
+	
+
+	public void setBannerPrinter(BannerPrinter bannerPrinter) {
+		this.bannerPrinter = bannerPrinter;
+	}
+
+	public void setExPrinter(ExPrinter exPrinter) {
+		this.exPrinter = exPrinter;
+	}
 
 	public void setPrintListener(PrintListener printListener) {
 		this.printListener = printListener;
@@ -46,7 +58,9 @@ public class ExamConsole {
 
 	public void print() {
 		
-		if(printListener != null)
+		if(bannerPrinter != null)
+			bannerPrinter.printBanner();
+		else if(printListener != null)
 			printListener.printBanner();
 
 		int kor = exam.getKor();
@@ -57,7 +71,9 @@ public class ExamConsole {
 		System.out.printf("eng:%d\n", eng);
 		System.out.printf("math:%d\n", math);
 
-		if(printListener != null)
+		if(exPrinter != null)
+			exPrinter.printEx();
+		else if(printListener != null)
 			printListener.printEx();
 
 	}
