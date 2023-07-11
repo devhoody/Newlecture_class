@@ -14,14 +14,60 @@ public class Program {
 
 		ExamConsole console = new ExamConsole();
 //		PrintListener printListener = new PrintListenerImp();
-		PrintListener printListener = (PrintListener) exam;
+//		PrintListener printListener = (PrintListener) exam;
 
 //		console.setPrintListener(exam);
-		console.setPrintListener(printListener);
+
+//		class AA implements PrintListener {
+//
+//			@Override
+//			public void printBanner() {
+//				System.out.println("뉴렉고등학교 성적표");
+//				
+//			}
+//
+//			@Override
+//			public void printEx() {
+//				NewExam exam1 = (NewExam)exam;
+//				System.out.printf("com:%d\n", exam1.getCom());
+//				
+//			}
+//			
+//		}
+
+//		PrintListener printListener = new PrintListener() {
+//
+//			@Override
+//			public void printBanner() {
+//				System.out.println("뉴렉고등학교 성적표!");
+//			}
+//
+//			@Override
+//			public void printEx() {
+//				NewExam exam1 = (NewExam)exam;
+//				System.out.printf("com:%d\n", exam1.getCom());
+//			}
+//			
+//		};
+
+		console.setPrintListener(new PrintListener() {
+
+			@Override
+			public void printBanner() {
+				System.out.println("뉴렉고등학교 성적표!!");
+
+			}
+
+			@Override
+			public void printEx() {
+				NewExam exam1 = (NewExam) exam;
+				System.out.printf("com:%d\n", exam1.getCom());
+			}
+
+		});
 		console.setExam(exam);
 		console.print();
 
-		
 	}
 
 }
