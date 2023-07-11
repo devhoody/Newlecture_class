@@ -46,7 +46,8 @@ public class ExamConsole {
 
 	public void print() {
 		
-		printListener.printBanner();
+		if(printListener != null)
+			printListener.printBanner();
 
 		int kor = exam.getKor();
 		int eng = exam.getEng();
@@ -56,7 +57,8 @@ public class ExamConsole {
 		System.out.printf("eng:%d\n", eng);
 		System.out.printf("math:%d\n", math);
 
-		printListener.printEx();
+		if(printListener != null)
+			printListener.printEx();
 
 	}
 
