@@ -13,12 +13,15 @@ public class Program {
 		Exam exam = new NewExam(1, 2, 3, 4);
 
 		ExamConsole console = new ExamConsole();
-		PrintListener printListener = new PrintListenerImp();
+//		PrintListener printListener = new PrintListenerImp();
+		PrintListener printListener = (PrintListener) exam;
 
+//		console.setPrintListener(exam);
 		console.setPrintListener(printListener);
 		console.setExam(exam);
 		console.print();
 
+		
 	}
 
 }
