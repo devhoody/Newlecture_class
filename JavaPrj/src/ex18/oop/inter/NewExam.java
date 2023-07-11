@@ -1,7 +1,7 @@
 package ex18.oop.inter;
 /*
- *  0710
- *	 추상화 커스텀 
+ *  0711
+ *	 인터페이스 
  */
 
 public class NewExam extends Exam {

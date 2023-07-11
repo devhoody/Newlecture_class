@@ -6,9 +6,15 @@ package ex18.oop.inter;
 
 import java.util.Scanner;
 
-public abstract class ExamConsole {
+public class ExamConsole {
 
 	private Exam exam; // = new Exam(); // has a 상속관계 : A가 B를 갖고있다.
+
+	private PrintListener printListener;
+
+	public void setPrintListener(PrintListener printListener) {
+		this.printListener = printListener;
+	}
 
 	public void setExam(Exam exam) {
 		this.exam = exam;
@@ -40,7 +46,7 @@ public abstract class ExamConsole {
 
 	public void print() {
 
-		printBanner();
+		printListener.printBanner();
 
 		int kor = exam.getKor();
 		int eng = exam.getEng();
@@ -50,16 +56,16 @@ public abstract class ExamConsole {
 		System.out.printf("eng:%d\n", eng);
 		System.out.printf("math:%d\n", math);
 
-		printEx();
+		printListener.printEx();
 
 	}
 
-	protected void printBanner() {
-		System.out.println("┌────────────┐");
-		System.out.println("│      성적출력         │");
-		System.out.println("└────────────┘");
-	}
+//	protected void printBanner() {
+//		System.out.println("┌────────────┐");
+//		System.out.println("│      성적출력         │");
+//		System.out.println("└────────────┘");
+//	}
 
-	protected abstract void printEx();
+//	protected abstract void printEx();
 
 }

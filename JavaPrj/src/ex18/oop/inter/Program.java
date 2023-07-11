@@ -11,12 +11,13 @@ public class Program {
 	public static void main(String[] args) throws IOException {
 
 		Exam exam = new NewExam(1, 2, 3, 4);
-		ExamConsole console = new NewExamConsole();
+
+		ExamConsole console = new ExamConsole();
+		PrintListener printListener = new PrintListenerImp();
+
+		console.setPrintListener(printListener);
 		console.setExam(exam);
 		console.print();
-
-		console.printEx();
-		
 
 	}
 
