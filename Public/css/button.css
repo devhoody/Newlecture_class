@@ -1,0 +1,15 @@
+.btn{
+    background-color: var(--color-base-0);
+}
+
+.btn-ok{
+    background-color: var(--color-base-5);
+}
+
+.btn-cancel{
+    background-color: var(--color-main-3);
+}
+
+@media (min-width : 700px) {
+
+}

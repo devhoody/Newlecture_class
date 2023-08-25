@@ -1,0 +1,36 @@
+.icon-settings{
+    /*border : 1px solid blue;*/
+
+    display: inline-block;
+    width: var(--icon-size-3);
+    height: var(--icon-size-3);
+    background-size: var(--icon-size-3);
+
+
+    overflow : hidden;
+    box-sizing: border-box;
+    padding: 0px;
+    border : none;
+    background-color : transparent;
+}
+
+.icon-settings::before{
+    /*border : 1px solid red;*/
+
+    content : ' ';
+    display: inline-block;
+    width: inherit;
+    height: inherit;
+    background-image: url(/image/icon/settings.svg);
+    background-size: inherit;
+}
+
+.icon-settings::before{
+    /*border : 1px solid red;*/
+    conten : '';
+    display: inline-block;
+}
+
+.icon-person{
+
+}

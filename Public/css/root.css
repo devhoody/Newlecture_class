@@ -1,0 +1,18 @@
+:root{
+    --color-base-0 : #ffffff;
+    --color-base-1 : #F5F5F5;
+    --color-base-2 : #E7E7E7;
+    --color-base-3 : #D9D9D9;
+    --color-base-4 : #818181;
+    --color-base-5 : #000000;
+    --color-black: #000000;
+
+    --color-main-1 : #FFFAF5;
+    --color-main-2 : #FFCE5A;
+
+    --color-accent-1 : #FF5A5A;
+
+    --icon-size-1 : 18px;
+    --icon-size-2 : 24px;
+    --icon-size-3 : 38px;
+}
