@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.rland.app.repository.MenuRepository">
+	<resultMap id="menuMap" type="Menu">
+		<!-- <id property="id" column="user_id" /> -->
+		<result property="korName" column="kor_name" />
+		<result property="engName" column="eng_name" />
+		<result property="regDate" column="reg_date" />
+		<result property="memberId" column="member_id" />
+		
+	</resultMap>
+
+	<select id="findAll" resultMap="menuMap">
+		select
+		*
+		from menu
+	</select>
+	
+	<select id="count" resultType="Integer">
+		select
+		count(id)
+		from menu
+	</select>
+	
+	<insert id = "save" parameterType="Menu">
+		insert into menu(kor_name, eng_name, price, img, member_id)
+		values (#{korName}, #{engName}, #{price}, #{img}, #{memberId})
+	</insert>
+	
+<!-- 	<update id = "update" parameterType="Menu">
+		update menu(kor_name, eng_name, price, img, member_id)
+		SET (#{korName}, #{engName}, #{price}, #{img}, {#memberId})
+	</update> -->
+	
+	<delete id = "delete">
+		delete from menu where id = #{id};
+	</delete>
+	
+	<select id="findById" resultMap="menuMap">
+		select * from menu where id = #{id}
+	</select>
+	
+</mapper>
