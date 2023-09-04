@@ -2,6 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.newlecture.app</groupId>
   <artifactId>mybatisapp</artifactId>
+  <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   
     <properties>
@@ -24,4 +25,15 @@
 		    <version>3.2.0</version>
 		</dependency>
     </dependencies>
+    
+     <build>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <plugin>
+		  <artifactId>maven-war-plugin</artifactId>
+		  <version>3.2.2</version>
+		</plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
 </project>
