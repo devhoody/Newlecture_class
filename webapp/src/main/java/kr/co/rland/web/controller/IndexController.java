@@ -15,8 +15,20 @@ public class IndexController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		out.println("안녕하세요.123123");
+		out.println("<hr>");
+
+		int size = 4;
+		String size_ = request.getParameter("s");
+		if (size_ != null)
+			size = Integer.parseInt(size_);
+
+		for (int i = 0; i < size; i++) {
+			out.println("안녕");
+		}
+
 	}
 }
