@@ -18,17 +18,43 @@ public class IndexController extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
-		out.println("안녕하세요.123123");
-		out.println("<hr>");
-
+		
 		int size = 4;
 		String size_ = request.getParameter("s");
 		if (size_ != null)
 			size = Integer.parseInt(size_);
 
 		for (int i = 0; i < size; i++) {
-			out.println("안녕");
+			out.println("안녕<br>");
 		}
+		
+		out.write("<!DOCTYPE html>");
+		out.write("<html>");
+		out.write("<head>");
+		out.write("<meta charset=\"UTF-8\">");
+		out.write("<title>Insert title here</title>");
+		out.write("</head>");
+		out.write("<body>");
+		out.write("Welcome 4 한글");
+		{
+			out.write("<hr>");
+			out.write("<h2>인삿말을 몇 번 듣고 싶으세요?</h2>");
+			out.write("<a href=\"/index?s=1\">1번</a><br>");
+			out.write("<a href=\"/index?s=5\">5번</a><br>");
+			out.write("<a href=\"/index?s=10\">10번</a><br>");
+			out.write("<a href=\"/index?s=100\">100번</a>");
+			out.write("<hr>");
+		}
+		{
+			out.write("<h2>인삿말을 몇 번 듣고 싶으세요?</h2>");
+			out.write("<form action=\"index\">");
+			out.write("	<label>갯수입력</label><input type=\"text\" name=\"s\">");
+			out.write("	<input type=\"submit\" value=\"요청\">");
+			out.write("</form>");
+			out.write("<hr>");
+		}
+		out.write("</body>");
+		out.write("</html>");
 
 	}
 }
