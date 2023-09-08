@@ -14,7 +14,6 @@ import jakarta.servlet.annotation.WebListener;
 @WebListener
 public class AppContextListener implements ServletContextListener {
 
-
   @Override
   public void contextInitialized(ServletContextEvent event) {
     System.out.println("서버 시작 이벤트 발생");
@@ -26,6 +25,7 @@ public class AppContextListener implements ServletContextListener {
       SqlSessionFactory sqlSessionFactory =
           new SqlSessionFactoryBuilder().build(inputStream);
       event.getServletContext().setAttribute("SqlSessionFactory", sqlSessionFactory);
+      event.getServletContext().setAttribute("a", "hello");
     } catch (IOException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();

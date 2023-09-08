@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.co.rland.app.repository.MenuRepository">
+<mapper namespace="kr.co.rland.web.repository.MenuRepository">
 	<resultMap id="menuMap" type="Menu">
 		<!-- <id property="id" column="user_id" /> -->
 		<result property="korName" column="kor_name" />

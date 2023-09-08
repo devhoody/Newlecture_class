@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = "/*" , loadOnStartup = 1)
+//@WebServlet(loadOnStartup = 1)
 public class MybatisConfigServlet extends HttpServlet {
 	
 	@Override
