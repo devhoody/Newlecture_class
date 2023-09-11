@@ -13,7 +13,8 @@
 	MenuRepository repository = sqlSession.getMapper(MenuRepository.class);
 	List<Menu> list = repository.findAll();
 	
-	System.out.println(list); 
+	pageContext.setAttribute("list", list);
+	/* System.out.println(list); */ 
 %>
 
 <%= sqlSessionFactory %>
@@ -27,8 +28,10 @@
 <body>
 	<h1>메뉴목록</h1>
 	<ul>
-		<% for(Menu m : list) { %>
-			<li><a href="detail.jsp?id=<%= m.getId()%>"><%= m.getKorName() %></a>(<%= m.getEngName() %>)</li>
+		<% for(Menu m : list) { 
+			pageContext.setAttribute("m",m);
+		%>
+			<li><a href="detail.jsp?id=${m.id}">${m.korName}</a>(${m.engName})</li>
 		<% } %>
 	</ul>
 </body>
