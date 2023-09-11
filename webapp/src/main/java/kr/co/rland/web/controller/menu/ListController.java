@@ -8,12 +8,14 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import kr.co.rland.web.entity.Menu;
 import kr.co.rland.web.repository.MenuRepository;
 
+@WebServlet("/menu/list")
 public class ListController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -26,5 +28,7 @@ public class ListController extends HttpServlet {
 		List<Menu> list = repository.findAll();
 
 		req.setAttribute("list", list);
+
+		req.getRequestDispatcher("/WEB-INF/view/menu/list.jsp").forward(req, resp);
 	}
 }
