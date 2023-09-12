@@ -7,20 +7,6 @@
          pageEncoding="UTF-8" %>
 <!-- 데이터 가져오는 부분-->
 
-<%
-
-    SqlSessionFactory sqlSessionFactory = (SqlSessionFactory) application.getAttribute("SqlSessionFactory");
-
-    SqlSession sqlSession = sqlSessionFactory.openSession();
-    MenuRepository repository = sqlSession.getMapper(MenuRepository.class);
-    List<Menu> list = repository.findAll();
-
-    long id = Long.parseLong(request.getParameter("id"));  // 물음표 뒤에 값 가져오기 (쿼리스트링)
-    Menu m = repository.findById(id);
-
-    pageContext.setAttribute("m", m);
-    
-%>
 
 <!--- ------------------------------------------------------------------------------------ -->
 <!DOCTYPE html>
@@ -38,7 +24,7 @@
     <dt>이미지</dt>
     <dd>coffee.png</dd>
 </dl>
-<a href="list.jsp">목록 </a>
+<a href="list">목록 </a>
 
 </body>
 </html>
