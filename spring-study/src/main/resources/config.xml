@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--  MenuDao dao = new Dm2MenuDao();-->
+	<bean id="dao" class="com.newlecture.spring.dao.dm.Dm2MenuDao">  
+		<!-- collaborators and configuration for this bean go here -->
+	</bean>
+	
+<!--  MenuServiceImp service = new MenuServiceImp();-->
+	<bean id="service" class="com.newlecture.spring.service.MenuServiceImp">
+		<!-- collaborators and configuration for this bean go here -->
+		<property name="dao" ref="dao"/> <!-- DI - name = setter, ref = 참조객체 --> 
+	</bean>
+
+	<!-- more bean definitions go here -->
+
+</beans>
