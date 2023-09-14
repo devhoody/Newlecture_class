@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HomeController {
-	
-	@ResponseBody
-	@RequestMapping("/hello")
-	public String fva() {
-		return "hello hello hello hello";
+
+	@RequestMapping("/index")
+	public String index(String s) {
+		System.out.println(s);
+
+		return "/WEB-INF/view/index.jsp";
+//		return "hello hello hello hello";
 	}
 }
