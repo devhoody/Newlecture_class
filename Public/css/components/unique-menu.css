@@ -1,0 +1,48 @@
+.unique-menu {
+    
+
+}
+
+.unique-menu 
+    .card {
+    padding-left: 30px;
+    background-color: black;
+    text-align: left;
+    padding-right : 40px;
+    }
+
+.unique-menu 
+    .card
+        h1{
+        font-size: 24px;
+        font-weight: bold;
+        color : #e2e2e2;
+        line-height: 32.69px;
+        margin:0;
+        }
+
+.unique-menu 
+    .card
+        span{
+        color:#D86259;
+        
+        }           
+
+.unique-menu 
+    .card
+        p{
+        font-size : 14px;
+        color:#f2f2f2;
+        margin-top : 8px;
+        margin-bottom: 24px;
+        line-height: 21px;
+        }        
+
+
+.unique-menu 
+    .card
+        img{
+        margin:0;
+        width: 240px;
+        height: 180px;
+        }
