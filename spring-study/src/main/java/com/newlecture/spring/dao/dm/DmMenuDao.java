@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.newlecture.spring.dao.MenuDao;
 import com.newlecture.spring.entity.Menu;
 
-@Component
+@Repository
 public class DmMenuDao implements MenuDao {
 
 	@Override
