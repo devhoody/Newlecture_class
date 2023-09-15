@@ -18,18 +18,18 @@ public class AppContextListener implements ServletContextListener {
   public void contextInitialized(ServletContextEvent event) {
     System.out.println("서버 시작 이벤트 발생");
 
-    String resource = "mybatis-config.xml";
-    InputStream inputStream;
-    try {
-      inputStream = Resources.getResourceAsStream(resource);
-      SqlSessionFactory sqlSessionFactory =
-          new SqlSessionFactoryBuilder().build(inputStream);
-      event.getServletContext().setAttribute("SqlSessionFactory", sqlSessionFactory);
-      event.getServletContext().setAttribute("a", "hello");
-    } catch (IOException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
+//    String resource = "mybatis-config.xml";
+//    InputStream inputStream;
+//    try {
+//      inputStream = Resources.getResourceAsStream(resource);
+//      SqlSessionFactory sqlSessionFactory =
+//          new SqlSessionFactoryBuilder().build(inputStream);
+//      event.getServletContext().setAttribute("SqlSessionFactory", sqlSessionFactory);
+//      event.getServletContext().setAttribute("a", "hello");
+//    } catch (IOException e) {
+//      // TODO Auto-generated catch block
+//      e.printStackTrace();
+//    }
   }
 
   @Override

@@ -3,19 +3,22 @@ package kr.co.rland.web.service;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Service;
 
 import kr.co.rland.App;
 import kr.co.rland.web.entity.Menu;
 import kr.co.rland.web.repository.MenuRepository;
 
+
+@Service
 public class MenuServiceImp implements MenuService {
 	
 	private MenuRepository repository;
 	
 	public MenuServiceImp() {
-		try (SqlSession session = App.sqlSessionFactory.openSession()) {
-				repository = session.getMapper(MenuRepository.class);
-			}
+//		try (SqlSession session = App.sqlSessionFactory.openSession()) {
+//				repository = session.getMapper(MenuRepository.class);
+//			}
 	}
 	
 	@Override
