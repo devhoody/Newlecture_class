@@ -3,26 +3,24 @@ package kr.co.rland.web.service;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.co.rland.App;
 import kr.co.rland.web.entity.Menu;
 import kr.co.rland.web.repository.MenuRepository;
 
 
-@Service
+@Service 
 public class MenuServiceImp implements MenuService {
 	
+	@Autowired // 서비스에 repository injection
 	private MenuRepository repository;
 	
-	public MenuServiceImp() {
-//		try (SqlSession session = App.sqlSessionFactory.openSession()) {
-//				repository = session.getMapper(MenuRepository.class);
-//			}
-	}
 	
 	@Override
 	public List<Menu> getList() {
+		
 		List<Menu> list = repository.findAll();
 		return list;
 	}

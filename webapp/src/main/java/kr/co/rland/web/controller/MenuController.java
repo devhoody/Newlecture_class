@@ -19,20 +19,15 @@ import kr.co.rland.web.service.MenuService;
 @RequestMapping("/menu")
 public class MenuController {
 	
-	@Autowired // field injection
+	@Autowired // field injection, 컨트롤러에 서비스 injection
 	private MenuService service;
 
 	@RequestMapping("list")
 	public String list(Model model, HttpServletRequest request) {
 
-		ServletContext application = request.getServletContext();
-
-		SqlSessionFactory sqlSessionFactory = (SqlSessionFactory) application.getAttribute("SqlSessionFactory");
-		SqlSession sqlSession = sqlSessionFactory.openSession();
-		MenuRepository repository = sqlSession.getMapper(MenuRepository.class);
-		List<Menu> list = repository.findAll();
-
-		model.addAttribute("list", list);
+		List<Menu> list = service.getList(); 
+		
+		model.addAttribute("list", list); //컨테이너에 추가
 
 		model.addAttribute("test", "노씨 : 1조");
 
@@ -43,12 +38,7 @@ public class MenuController {
 	public String detail(Model model, HttpServletRequest request) {
 		long id = Long.parseLong(request.getParameter("id"));
 
-		ServletContext application = request.getServletContext();
-		SqlSessionFactory sqlSessionFactory = (SqlSessionFactory) application.getAttribute("SqlSessionFactory");
-		SqlSession sqlSession = sqlSessionFactory.openSession();
-		MenuRepository repository = sqlSession.getMapper(MenuRepository.class);
-
-		Menu m = repository.findById(id);
+		Menu m = service.getById(id);
 
 		model.addAttribute("m", m);
 
