@@ -25,7 +25,7 @@ public class MenuController {
 	@RequestMapping("list")
 	public String list(Model model, HttpServletRequest request) {
 
-		List<Menu> list = service.getList(); 
+		List<Menu> list = service.getList();
 		
 		model.addAttribute("list", list); //컨테이너에 추가
 
