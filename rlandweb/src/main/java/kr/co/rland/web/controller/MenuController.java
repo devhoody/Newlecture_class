@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/menu")
 public class MenuController {
 
-	@ResponseBody
+//	@ResponseBody	
 	@RequestMapping("list")
 	public String list() {
 
-		return "list"; // template에서 list.html을 찾음.
+		return "menu/list"; // template에서 list.html을 찾음.
 	}
 
 	@ResponseBody
