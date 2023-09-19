@@ -1,6 +1,7 @@
 package kr.co.rland.web.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -10,8 +11,10 @@ public class MenuController {
 
 //	@ResponseBody	
 	@RequestMapping("list")
-	public String list() {
-
+	public String list(Model model) {
+		
+		model.addAttribute("test", "test");
+		
 		return "menu/list"; // template에서 list.html을 찾음.
 	}
 
