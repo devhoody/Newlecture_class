@@ -18,10 +18,10 @@ public class MenuController {
 		return "menu/list"; // template에서 list.html을 찾음.
 	}
 
-	@ResponseBody
+//	@ResponseBody
 	@RequestMapping("detail")
 	public String detail() {
 
-		return "detail"; // template에서 detail.html을 찾음.
+		return "menu/detail"; // template에서 detail.html을 찾음.
 	}
 }
