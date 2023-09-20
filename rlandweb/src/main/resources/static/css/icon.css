@@ -85,6 +85,10 @@
     background-color: var(--color-base-0);
 }
 
+.icon-color\:base-13::before {
+    background-color: var(--color-base-13);
+}
+
 .icon-settings::before {
     -webkit-mask-image: url(../image/icon/settings.svg);
     mask-image: url(../image/icon/settings.svg);
