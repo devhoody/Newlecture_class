@@ -41,20 +41,36 @@
 	    </div>
 	    
 	    <section>
-		<h1>메뉴목록</h1>
-	    <ul> <!-- 그리드면 div로 변환-->
-			<li>
-				<!-- 카드내용-->
-				<img>사진
-				<p>카페라떼</p>
-				<p>Caffe Latte</p>
-				<p>4,500원</p> 
-				<p>SOLD OUT</p>
-				<button>좋아요</button>
-				<button class="icon icon-cart icon-color:base-13">메뉴담기</button>
-				<a href= "">주문하기</a>
-			</li>
-		</ul>
+			<h1 class="d:none">메뉴목록</h1>
+		    <div>
+				<section>
+					<h1>카페라떼</h1>
+					<h2>Caffe Latte</h2>
+					<!-- 카드내용-->
+					<div>
+						<img>사진
+					</div>
+					
+					<div>
+						<p>4,500원</p>  <!-- span? vs p? -->
+						<p>SOLD OUT</p> <!-- 매진일때 보이기-->								
+					</div>
+								
+					<div>
+						<a>좋아요</a><span>2</span>
+					</div>
+					
+					<div>
+						<a class="" href="">장바구니</a>
+						<a class="" href="">결제하기</a>
+					</div>
+						
+<!--						맛잘알 조꺼					-->
+<!--						<div>-->
+<!--							<a class="icon icon-cart icon-color:base-13">메뉴담기</a>-->
+<!--							<a href= "">주문하기</a>														-->
+<!--						</div>-->			
+			</div>
 		</section>
 	</main>
 </body>
