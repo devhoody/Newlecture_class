@@ -43,8 +43,8 @@
 	    <section>
 			<h1 class="d:none">메뉴목록</h1>
 		    <div>
-				<section>
-					<h1>카페라떼</h1>
+				<section th:each="m : ${list}">
+					<h1 th:text="${m.korName}">카페라떼</h1>
 					<h2>Caffe Latte</h2>
 					<!-- 카드내용-->
 					<div>
