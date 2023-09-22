@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.rland.web.service.MenuService;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/menu")
 public class MenuController {
@@ -18,16 +20,13 @@ public class MenuController {
 //	@ResponseBody	
 	@RequestMapping("list")
 	public String list(Model model) {
-		
-		model.addAttribute("list", service.getList());
 
-		Menu menu = Menu
-				.builder()
-				.id(1L)
-				.korName("아메리카노")
-				.build();
+		List<Menu> list = service.getList();
 
-		System.out.println(menu);
+		System.out.println(list);
+
+		model.addAttribute("list", list);
+
 
 		return "menu/list"; // template에서 list.html을 찾음.
 	}

@@ -45,14 +45,14 @@
 		    <div>
 				<section th:each="m : ${list}">
 					<h1 th:text="${m.korName}">카페라떼</h1>
-					<h2>Caffe Latte</h2>
+					<h2 th:text="${m.engName}">Caffe Latte</h2>
 					<!-- 카드내용-->
 					<div>
 						<img>사진
 					</div>
 					
 					<div>
-						<p>4,500원</p>  <!-- span? vs p? -->
+						<p th:text="${m.price}">4,500원</p>  <!-- span? vs p? -->
 						<p>SOLD OUT</p> <!-- 매진일때 보이기-->								
 					</div>
 								

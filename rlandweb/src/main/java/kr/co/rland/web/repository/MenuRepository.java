@@ -12,5 +12,11 @@ public interface MenuRepository {
 	
 	@Select("select * from menu")
 	List<Menu> findAll();
-	
+
+	int count(); // select count(id) from ..
+
+	Menu findById(long id);
+	int save(Menu menu);
+	int update(Menu menu);
+	int delete(long id);
 }
