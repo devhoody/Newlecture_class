@@ -2,6 +2,14 @@ package kr.co.rland.web.entity;
 
 import java.util.Date;
 
+import lombok.*;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Builder
 public class Menu {
 		private long id;
 	   private String korName;

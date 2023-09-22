@@ -1,5 +1,6 @@
 package kr.co.rland.web.controller;
 
+import kr.co.rland.web.entity.Menu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +20,15 @@ public class MenuController {
 	public String list(Model model) {
 		
 		model.addAttribute("list", service.getList());
-		
+
+		Menu menu = Menu
+				.builder()
+				.id(1L)
+				.korName("아메리카노")
+				.build();
+
+		System.out.println(menu);
+
 		return "menu/list"; // template에서 list.html을 찾음.
 	}
 
