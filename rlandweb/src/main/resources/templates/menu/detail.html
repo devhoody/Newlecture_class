@@ -13,8 +13,38 @@
 </head>
 <body>
 	<main layout:fragment="main">
-		<a href="/index">홈</a>
- 		<a href="/menu/list">메뉴 리스트</a>
+		<div>
+			<div>size: <span th:text="${param.size}"></span></div>
+			<div>temp: <span th:text="${param.temp}"></span></div>
+		</div>
+		<section>
+			<h1>카페라떼</h1>
+			<h2>Caffe Latte</h2>
+			<p>설명글</p>
+			<form>
+				<fieldset>
+					<legend>사이즈</legend>
+					<label><input type="radio" name="size" value="1" checked>Small</label>
+					<label><input type="radio" name="size" value="2">Large</label>
+				</fieldset>
+				<fieldset>
+					<legend>온도</legend>
+					<label><input type="radio" name="temp" value="1" checked>HOT</label>
+					<label><input type="radio" name="temp" value="2">ICED</label>
+				</fieldset>
+				<fieldset>
+					<legend>수량</legend>
+					<input class="icon icon-minus" type="submit" name="minus" value="1">
+					<output>1</output>
+					<input type="submit" name="plus" value="1">
+					<output>4500원</output>
+				</fieldset>
+				<div>
+					<input type="submit" name="cmd" value="담기">
+					<input type="submit" name="cmd" value="주문하기">
+				</div>
+			</form>
+		</section>
 	</main>
 </body>
 </html>
