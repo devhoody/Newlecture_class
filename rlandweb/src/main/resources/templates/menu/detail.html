@@ -24,9 +24,9 @@
 			<div>temp2: <span th:text="${#numbers.formatInteger(param.temp,1)}==2"></span></div>
 			<div>param.qt: <span th:text="${#numbers.formatInteger(qt * 4500, 3, 'COMMA')}"></span>원</div>
 		</div>
-		<section>
-			<h1>카페라떼</h1>
-			<h2>Caffe Latte</h2>
+		<section th:object="${menu}">
+			<h1 th:text="*{korName}">카페라떼</h1>
+			<h2 th:text="*{engName}">Caffe Latte</h2>
 			<p>설명글</p>
 			<form>
 				<fieldset>
@@ -41,7 +41,8 @@
 					<label><input type="radio" name="temp" value="2" th:checked="${#numbers.formatInteger(param.temp,1)}==2">ICED</label>
 				</fieldset>
 				<fieldset
-					th:with="qt = (${#numbers.formatInteger(param.inc,1)}?:0)+(${#numbers.formatInteger(param.qt,1)}?:1)">
+					th:with="qt = (${#numbers.formatInteger(param.inc,1)}?:0)+(${#numbers.formatInteger(param.qt,1)}?:1)"
+				>
 					<legend>수량</legend>
 					<input class="icon icon-minus" type="submit" name="inc" value="-1" th:disabled="${qt==1}">
 					<output th:text="${qt}">1</output>
