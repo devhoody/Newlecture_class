@@ -13,13 +13,22 @@
     font-weight: bold;
 }
 
+.btn-icon{
+    padding:0;
+    box-sizing: content-box;
+}
+
+.btn-type\:icon{
+    padding:7px;
+    box-sizing : content-box;
+    border-radius: 50%;
+}
+
 .btn-disable{
     background-color: var(--color-main-3);
 }
 
-.btn-reverse{
-    
-}
+
 
 .btn-accent{
     --radius: 15px;
