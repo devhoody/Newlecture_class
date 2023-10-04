@@ -1,0 +1,15 @@
+#mybatis.configuration.map-underscore-to-camel-case: true
+#  mybatis.mapper-locations=mappers/MenuRepositoryMapper.xml
+#  mybatis.type-aliases-package=kr.co.rland.web.entity
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations: mappers/*Mapper.xml
+  type-aliases-package: kr.co.rland.web.entity
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
