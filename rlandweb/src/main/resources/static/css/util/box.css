@@ -384,7 +384,7 @@ margin
 /*--- medium ------------------------------------------------------------------*/
 @media (min-width: 768px) {
     .md\:d\:none          { display: none !important; }
-    .md\:\:inline        { display: inline !important; }
+    .md\:d\:inline        { display: inline !important; }
     .md\:d\:inline-block  { display: inline-block !important; }
     .md\:d\:block         { display: block !important; }
     .md\:d\:table         { display: table !important; }
