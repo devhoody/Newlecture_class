@@ -31,4 +31,18 @@ public class MenuServiceImp implements MenuService {
 		return repository.findViewAll();
 	}
 
+	@Override
+	public Menu add(Menu menu) {
+		repository.save(menu);
+		Menu newOne = repository.last();
+		return newOne;
+	}
+
+	@Override
+	public Menu modify(Menu menu) {
+		repository.save(menu);
+		Menu mOne = repository.findById(menu.getId());
+		return mOne;
+	}
+
 }

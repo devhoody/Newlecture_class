@@ -23,4 +23,5 @@ public interface MenuRepository {
 	int delete(long id);
 
 	List<MenuView> findViewAll();
+	Menu last();
 }

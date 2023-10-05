@@ -5,7 +5,7 @@ import kr.co.rland.web.entity.MenuView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import kr.co.rland.web.service.MenuService;
 
@@ -30,6 +30,22 @@ public class MenuController {
 		model.addAttribute("list", list);
 
 		return "menu/list"; // template에서 list.html을 찾음.
+	}
+
+	@PostMapping("reg")
+	public String reg(
+			@RequestParam("kor-name") String korName,
+			@RequestParam(defaultValue = "0") int price,
+			String description,
+			@RequestParam("is-small") boolean isSmall,
+			String img
+	) {
+
+		System.out.println(price);
+		System.out.println(isSmall);
+		System.out.println(img);
+
+		return "redirect:list";
 	}
 
 //	@ResponseBody
