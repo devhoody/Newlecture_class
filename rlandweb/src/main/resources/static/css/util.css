@@ -8,6 +8,26 @@
 /* calspan, rowspan */
 .colspan\:2{grid-column: span 2 !important;}
 
+/* ------------------------boxing -------------------------- */
+/*
+padding
+margin
+border
+size
+ */
+
+/* ------------------------font -------------------------- */
+.color\:base-5{color:var(--color-base-5) !important;}
+.color\:base-9{color:var(--color-base-9) !important;}
+
+.color\:main-1{color:var(--color-main-1) !important;}
+.color\:main-2{color:var(--color-main-2) !important;}
+.color\:main-3{color:var(--color-main-3) !important;}
+.color\:accent-1{color:var(--color-accent-1) !important;}
+
+.font\:size-1{font-size: var(--font-size-1) !important;}
+
+
 /* justify-self */
 .justify-self\:left{ justify-self: left;}
 .justify-self\:right{ justify-self: right;}
