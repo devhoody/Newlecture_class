@@ -11,14 +11,15 @@ import lombok.*;
 @ToString
 @Builder
 public class Menu {
-		private long id;
+		private Long id;
 	   private String korName;
 	   private String engName;
-	   private int price;
+	   private Integer price;
 	   private String img;
+	   private String description;
+	   private Boolean isSmall;
 	   private Date regDate;
-	   private int hit;
-	   private long memberId;
-	   
-	   
+	   private Integer hit;
+	   private Long memberId;
+
 }
