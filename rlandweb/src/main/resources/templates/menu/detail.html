@@ -32,13 +32,13 @@
 				<fieldset>
 					<legend>사이즈</legend>
 <!--					<label><input type="radio" name="size" value="1" checked="${param.size==1}">Small</label>-->
-					<label><input type="radio" name="size" value="1" th:checked="${#numbers.formatInteger(param.size,3)}==1">Small</label>
-					<label><input type="radio" name="size" value="2" th:checked="${#numbers.formatInteger(param.size,3)}==2">Large</label>
+					<label><input type="radio" name="size" value="1" th:checked="${#numbers.formatInteger(param.size,1)}==1 or ${param.size}==null">Small</label>
+					<label><input type="radio" name="size" value="2" th:checked="${#numbers.formatInteger(param.size,1)}==2">Large</label>
 				</fieldset>
 				<fieldset>
 					<legend>온도</legend>
-					<label><input type="radio" name="temp" value="1" th:checked="${#numbers.formatInteger(param.temp,1)}==1">HOT</label>
-					<label><input type="radio" name="temp" value="2" th:checked="${#numbers.formatInteger(param.temp,1)}==2">ICED</label>
+					<label><input type="radio" name="temp" value="1" th:checked="${#numbers.formatInteger(param.temp,1)}==1 ">HOT</label>
+					<label><input type="radio" name="temp" value="2" th:checked="${#numbers.formatInteger(param.temp,1)}==2 or ${param.temp}==null">ICED</label>
 				</fieldset>
 				<fieldset
 					th:with="qt = (${#numbers.formatInteger(param.inc,1)}?:0)+(${#numbers.formatInteger(param.qt,1)}?:1)"
