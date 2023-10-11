@@ -10,6 +10,7 @@ public interface MenuService {
 	Menu getById(long id);
 
 	List<MenuView> getViewList();
+	List<MenuView> getList(String query);
 
     Menu add(Menu menu);
 

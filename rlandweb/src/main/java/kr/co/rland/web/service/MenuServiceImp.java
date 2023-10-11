@@ -28,7 +28,21 @@ public class MenuServiceImp implements MenuService {
 
 	@Override
 	public List<MenuView> getViewList() {
-		return repository.findViewAll();
+		int page =1;
+		int size=9;
+		int offset = size*(page-1);
+		List<MenuView> list = repository.findViewAll(offset, size, null, null);
+
+		return list;
+	}
+
+	@Override
+	public List<MenuView> getList(String query) {
+
+		int page =1;
+		int size=9;
+		int offset = size*(page-1);
+		return  repository.findViewAll(offset, size, null, query);
 	}
 
 	@Override

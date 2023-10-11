@@ -37,7 +37,6 @@
 			<if test="hit != null and engName!= 0">`hit` = #{hit},</if>
 			<if test="memberId != null and engName!= 0">`member_id` = #{memberId}</if>
 		</set>
-
 		WHERE `id` = #{id}
 	</update>
 
@@ -51,8 +50,14 @@
 
 	<select id="findViewAll" resultType="MenuView">
 		select
-			*
+		*
 		from menu_view
+		<where>
+			<if test="categoryId != null">`category_id` = #{categoryId}</if>
+			<if test="query != null">and `kor_name` like '%${query}%'</if>
+		</where>
+		order by reg_date desc
+		limit #{offset}, #{size}
 	</select>
 
 	<select id="last" resultType="Menu">

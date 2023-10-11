@@ -22,6 +22,6 @@ public interface MenuRepository {
 	int update(Menu menu);
 	int delete(long id);
 
-	List<MenuView> findViewAll();
+	List<MenuView> findViewAll(int offset, int size, Long categoryId, String query);
 	Menu last();
 }
