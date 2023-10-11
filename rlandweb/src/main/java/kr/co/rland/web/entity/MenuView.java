@@ -8,13 +8,15 @@ import java.util.Date;
 @AllArgsConstructor
 @Builder
 public class MenuView {
-    private long id;
+    private Long id;
     private String korName;
     private String engName;
-    private int price;
+    private Integer price;
     private String img;
     private Date regDate;
-    private int hit;
-    private long memberId;
-    private int likeCount;
+    private Integer hit;
+    private Integer amount;
+    private Long memberId;
+    private Integer likeCount;
+    private Boolean isLike;
 }
