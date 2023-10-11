@@ -10,7 +10,10 @@ body{
     font-family: 'Noto Sans KR', sans-serif;
     display: flex;
     flex-direction: column;
-}
+
+    color:var(--color-base-9);
+
+}   
 
 main{
     flex-grow:1;

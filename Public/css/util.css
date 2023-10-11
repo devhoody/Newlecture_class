@@ -1,14 +1,63 @@
-.d\:none{ display: none !important;}
-.d\:flex{ display: flex !important;}
+.d\:none{ display: none !important; }
+.d\:flex{ display: flex !important; }
 .d\:block{ display: block !important;}
-.d\:inline{ display : inline !important;}
-.d\:inline-block{ display : inline-block !important;}
+.d\:inline{ display: inline !important;}
+.d\:inline-block{ display: inline-block !important;}
+
+.justify-self\:left{ justify-self: left; }
+.justify-self\:center{ justify-self: center; }
+.justify-self\:right{ justify-self: right; }
+
+.colspan\:2{ grid-column: span 2 !important; }
+
+
+/* --- boxing ------------------------------------------ */
+/* padding
+margin
+border
+size */
+
+
+
+/* --- boxing - margin ------ */
+
+.m\:1{margin:var(--gap-1);}
+.m\:2{margin:var(--gap-2);}
+.m\:3{margin:var(--gap-3);}
+
+.ml\:1{margin-left:var(--gap-1);}
+.ml\:2{margin-left:var(--gap-2);}
+.ml\:3{margin-left:var(--gap-3);}
+
+.mr\:1{margin-right:var(--gap-1);}
+.mr\:2{margin-right:var(--gap-2);}
+.mr\:3{margin-right:var(--gap-3);}
+
+
+.mv\:1{margin-top:var(--gap-1) !important; margin-bottom:var(--gap-1) !important;}
+.mh\:1{margin-left:var(--gap-1) !important; margin-right:var(--gap-1) !important;}
+
+
+/* ---- font ------------------------------------------------- */
+.color\:base-5{ color:var(--color-base-5) !important; }
+.color\:base-9{ color:var(--color-base-9) !important; }
+
+.color\:main-1{ color:var(--color-main-1) !important; }
+.color\:main-2{ color:var(--color-main-2) !important; }
+.color\:main-3{ color:var(--color-main-3) !important; }
+
+.color\:accent-1{ color:var(--color-accent-1) !important; }
+
+.font-weight\:normal{ font-weight: normal !important; }
+.font-weight\:bold{ font-weight: bold !important; }
+
 
 @media (min-width: 700px) {
-    .md\:d\:none{ display: none !important;}
-    .md\:d\:flex{ display: flex !important;}
+    .md\:d\:none{ display: none !important; }
+    .md\:d\:flex{ display: flex !important; }
     .md\:d\:block{ display: block !important;}
-    .md\:d\:inline{ display : inline !important;}
-    .md\:d\:inline-block{ display : inline-block !important;}
+    .md\:d\:inline{ display: inline !important;}
+    .md\:d\:inline-block{ display: inline-block !important;}
 
+    .md\:colspan\:2{grid-column: span 2 !important; }
 }

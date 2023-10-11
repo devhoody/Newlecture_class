@@ -27,7 +27,18 @@
     --radius-2 : 8px;
     --radius-3 : 20px;
 
+    --icon-size-0 : 16px;
     --icon-size-1 : 18px;
     --icon-size-2 : 24px;
     --icon-size-3 : 38px;
+
+    --gap-1 : 5px;
+    --gap-2 : 8px;
+    --gap-3 : 10px;
+    --gap-4 : 16px;
+    --gap-5 : 20px;
+    --gap-6 : 30px;
+    --gap-7 : 45px;
+
+    
 }

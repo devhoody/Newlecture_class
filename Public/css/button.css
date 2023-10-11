@@ -17,10 +17,6 @@
     background-color: var(--color-main-3);
 }
 
-.btn-reverse{
-    
-}
-
 .btn-accent{
     --radius: 15px;
     width : calc(var(--radius) * 2);
