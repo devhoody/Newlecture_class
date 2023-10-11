@@ -32,6 +32,7 @@ public class MenuController {
 		return "menu/list"; // template에서 list.html을 찾음.
 	}
 
+
 	@PostMapping("reg")
 	public String reg(
 			@RequestParam("kor-name") String korName,
@@ -50,9 +51,9 @@ public class MenuController {
 
 //	@ResponseBody
 	@RequestMapping("detail")
-	public String detail(Model model) {
+	public String detail(long id, Model model) {
 
-		Menu menu = service.getById(20L);
+		Menu menu = service.getById(id);
 
 		model.addAttribute("menu", menu);
 
