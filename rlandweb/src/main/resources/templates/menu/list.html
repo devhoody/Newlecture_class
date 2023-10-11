@@ -1,65 +1,73 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	  layout:decorate="~{inc/layout.html}">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{inc/layout.html}"
+>
 
 <head>
-	<title>Document</title>
-	<link href="/css/components/menu/search-section.css" rel="stylesheet" type="text/css">
-	<link href="/css/components/menu/card.css" rel="stylesheet" type="text/css">
-	<script src="/js/menu/list.js"></script>
+    <link href="/css/components/menu/card.css" rel="stylesheet" type="text/css">
+    <link href="/css/components/menu/menu-filter.css" rel="stylesheet" type="text/css">
+    <link href="/css/components/menu/list.css" rel="stylesheet" type="text/css">
+    <script src="/js/menu/list.js"></script>
 </head>
 
 <body>
 <main layout:fragment="main">
-	<a href="/index">홈</a>
-	<a href="/menu/detail">메뉴 상세</a>
+    <section class="menu-list">
+        <h1 class="d:none">메뉴 검색 목록</h1>
+        <div>
+            <section class="menu-filter">
+                <h1>Rland Menu<span class="d:none">검색</span></h1>
 
-	<section class="search-section">
-		<h1>Rland Menu<span class="d:none">검색</span></h1>
+                <nav class="category-filter">
+                    <h1 class="d:none">카테고리 검색 메뉴 목록</h1>
+                    <ul>
+                        <li><a class="sm:deco current md:deco sm:icon-filter_list" href="">전체메뉴</a></li>
+                        <li><a class="d:none md:d:inline" href="">커피</a></li>
+                        <li><a class="d:none md:d:inline" href="">수제청</a></li>
+                        <li><a class="d:none md:d:inline" href="">샌드위치</a></li>
+                        <li><a class="d:none md:d:inline" href="">쿠키</a></li>
+                    </ul>
+                </nav>
+                <section class="query-filter">
+                    <h1 class="d:none">이름 검색 폼</h1>
+                    <form>
+                        <fieldset>
+                            <legend class="d:none">이름 검색</legend>
+                            <input class="input-query" type="text" placeholder="메뉴 검색">
+                            <button class="icon icon-find btn-find">검색</button>
+                        </fieldset>
+                    </form>
+                </section>
+            </section>
 
-		<nav class="category-search">
-			<h1 class="d:none">카테고리 검색 메뉴 목록</h1>
-			<ul>
-				<li><a class="deco md:deco deco-icon-size:1 icon-filter_list" href="">전체메뉴</a></li>
-				<li><a class="current d:none md:d:inline" href="">커피</a></li>
-				<li><a class="d:none md:d:inline" href="">수제청</a></li>
-				<li><a class="d:none md:d:inline" href="">샌드위치</a></li>
-				<li><a class="d:none md:d:inline" href="">쿠키</a></li>
-			</ul>
-		</nav>
-		<section>
-			<h1 class="d:none">이름 검색 폼</h1>
-			<form class="form-section">
-				<fieldset>
-					<legend class="d:none">이름 검색</legend>
-					<input class="input-query" type="text">
-					<input class="btn-find" type="submit" value="검색">
-				</fieldset>
-			</form>
-		</section>
-	</section>
-	<section>
-		<h1 class="d:none">메뉴목록</h1>
-		<div>
-			<section class="menu-card">
-				<h1>
-					<a class="heading-3" href="detail?id=1">카페라떼</a></h1>
-				<h2 class="heading-2 font-weight:normal color:base-5">Cafe Latte</h2>
-				<div class="price-block d:flex"><span class="font-weight:bold">4,500</span>원<span class="ml:auto mr:auto">SOLD OUT</span></div>
-				<div class="img-block">
-					<a href=""><img src="/image/menu/8.jpg"></a>
-				</div>
-				<div class="like-block">
-					<a class="icon icon-heart" href="">좋아요</a><span class="font-weight:bold ml:1">2</span>
-				</div>
-				<div class="pay-block d:flex">
-					<a class="icon icon-cart icon-color:base-0 bg-color:main-3 btn-type:icon" href="">장바구니</a>
-					<a class="icon icon-card icon-color:base-0 bg-color:accent-1 btn-type:icon" href="">결제하기</a>
-				</div>
+            <!-- ------------------------------------------------------ -->
 
-			</section>
-		</div>
-	</section>
+            <section class="menu-card-list">
+                <h1 class="d:none">메뉴 목록</h1>
+                <div class="content">
+                    <section class="menu-card" th:each=" l : ${list}">
+                        <h1>
+                            <a th:text="${l.korName}" class="heading-3" href="detail.html">카페라떼1</a></h1>
+                        <h2 th:text="${l.engName}" class="heading-2 font-weight:normal color:base-5">Cafe Latte</h2>
+                        <div class="price-block d:flex align-items:flex-end"><span class="font-weight:bold" th:text="${#numbers.formatInteger(l.price,3,'COMMA')}">4,500</span>원<span class="soldout-msg ml:auto mr:auto md:d:none">SOLD OUT</span></div>
+                        <div class="img-block">
+                            <a href="detail.html?id=1" th:href="@{'detail?id='+ ${l.id}}"><img src="/image/menu/8.jpg" th:src="@{'/image/menu/product/' + ${l.img}}"></a>
+                        </div>
+                        <div class="like-block d:flex justify-content:flex-end">
+                            <a  class="icon icon-color:base-4" th:classappend="${l.isLike}? 'icon-heart-fill' : 'icon-heart'" href="">좋아요</a>
+                            <span th:text="${l.likeCount}" class="font-weight:bold ml:1">2</span>
+                        </div>
+                        <div class="pay-block d:flex">
+                            <a class="icon md:icon:none icon-cart icon-color:base-0 color:base-0 btn-type:icon btn-cart md:btn-type:text" href="">담기</a>
+                            <a class="icon md:icon:none icon-card icon-color:base-0 color:base-0 btn-type:icon btn-card md:btn-type:text" href="">주문하기</a>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </section>
+    <div th:replace="~{inc/basket-status::.basket-status}"></div>
 </main>
 </body>
 
