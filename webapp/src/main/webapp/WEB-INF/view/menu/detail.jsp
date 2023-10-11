@@ -1,8 +1,3 @@
-<%@page import="kr.co.rland.web.entity.Menu" %>
-<%@page import="java.util.List" %>
-<%@page import="kr.co.rland.web.repository.MenuRepository" %>
-<%@page import="org.apache.ibatis.session.SqlSession" %>
-<%@page import="org.apache.ibatis.session.SqlSessionFactory" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <!-- 데이터 가져오는 부분-->
