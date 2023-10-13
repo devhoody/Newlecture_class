@@ -22,9 +22,11 @@ public class MenuController {
     //    @ResponseBody
     @GetMapping
     public List<MenuView> list(
-        @RequestParam("q") String query) {
+            @RequestParam(name="p", defaultValue = "1") Integer page,
+            @RequestParam(name="c", required = false) Long categoryId,
+            @RequestParam(name="q", required = false) String query) {
 
-        List<MenuView> list = service.getList(query);
+        List<MenuView> list = service.getViewList(page, query, categoryId);
         return list;
     }
 

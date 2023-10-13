@@ -22,11 +22,10 @@
                 <nav class="category-filter">
                     <h1 class="d:none">카테고리 검색 메뉴 목록</h1>
                     <ul>
-                        <li><a class="sm:deco current md:deco sm:icon-filter_list" href="">전체메뉴</a></li>
-                        <li><a class="d:none md:d:inline" href="">커피</a></li>
-                        <li><a class="d:none md:d:inline" href="">수제청</a></li>
-                        <li><a class="d:none md:d:inline" href="">샌드위치</a></li>
-                        <li><a class="d:none md:d:inline" href="">쿠키</a></li>
+                        <li><a data-id="" class="sm:deco current md:deco sm:icon-filter_list" href="?c=1">전체메뉴</a></li>
+                        <li th:each=" c : ${categoryList}">
+                            <a data-id="3" th:data-id="${c.id}" class="d:none md:d:inline" href="?c=1" th:href="@{'?c=' + ${c.id}}" th:text="${c.name}">커피</a>
+                        </li>
                     </ul>
                 </nav>
                 <section class="query-filter">

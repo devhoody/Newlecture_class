@@ -4,7 +4,6 @@ import java.util.List;
 
 import kr.co.rland.web.entity.MenuView;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 
 import kr.co.rland.web.entity.Menu;
 

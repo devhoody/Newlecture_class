@@ -1,6 +1,8 @@
 package kr.co.rland.web.service;
 
 import java.util.List;
+
+import kr.co.rland.web.entity.Category;
 import kr.co.rland.web.entity.Menu;
 import kr.co.rland.web.entity.MenuView;
 
@@ -9,10 +11,11 @@ public interface MenuService {
 
 	Menu getById(long id);
 
-	List<MenuView> getViewList();
-	List<MenuView> getList(String query);
-
     Menu add(Menu menu);
 
 	Menu modify(Menu menu);
+
+	List<Category> getCategoryList();
+
+	List<MenuView> getViewList(Integer page, String query, Long categoryId);
 }
