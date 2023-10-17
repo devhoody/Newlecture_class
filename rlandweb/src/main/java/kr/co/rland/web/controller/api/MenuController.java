@@ -21,6 +21,7 @@ public class MenuController {
 
     //    @ResponseBody
     @GetMapping
+    @CrossOrigin(origins = "http://localhost:63342/") // 메서드에서 설정
     public List<MenuView> list(
             @RequestParam(name="p", defaultValue = "1") Integer page,
             @RequestParam(name="c", required = false) Long categoryId,
