@@ -1,9 +1,14 @@
 package kr.co.rland.web.controller;
 
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import kr.co.rland.web.entity.Category;
 import kr.co.rland.web.entity.Menu;
 import kr.co.rland.web.entity.MenuView;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +26,13 @@ public class MenuController {
 
 //	@ResponseBody	
 	@RequestMapping("list")
-	public String list(Model model) {
+	public String list(Model model,
+					   HttpServletRequest request,
+					   HttpServletResponse response) {
+
+		Cookie cookie = new Cookie("test", "hello1");
+
+		response.addCookie(cookie);
 
 //		List<Menu> list = service.getList();
 		List<MenuView> list = service.getViewList(1,null,null);
@@ -29,9 +40,6 @@ public class MenuController {
 
 		System.out.println(list);
 		System.out.println(categoryList);
-
-		model.addAttribute("categoryList", categoryList);
-		model.addAttribute("list", list);
 
 		return "menu/list"; // template에서 list.html을 찾음.
 	}
