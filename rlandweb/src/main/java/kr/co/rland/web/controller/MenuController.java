@@ -30,9 +30,9 @@ public class MenuController {
 					   HttpServletRequest request,
 					   HttpServletResponse response) {
 
-		Cookie cookie = new Cookie("test", "hello1");
-
-		response.addCookie(cookie);
+		Cookie cookie = new Cookie("test", "hello");
+		if(request.getCookies() == null || request.getCookies().length <1)
+			response.addCookie(cookie);
 
 //		List<Menu> list = service.getList();
 		List<MenuView> list = service.getViewList(1,null,null);
@@ -63,9 +63,21 @@ public class MenuController {
 
 //	@ResponseBody
 	@RequestMapping("detail")
-	public String detail(long id, Model model) {
+	public String detail(Model model,
+//						 HttpServletRequest request
+				 		@CookieValue String test) {
 
-		Menu menu = service.getById(id);
+		System.out.println(test);
+
+//		Cookie[] cookies = request.getCookies();
+
+//		for(Cookie c: cookies)
+//			if(c.getName().equals("test")) {
+//				System.out.println(c.getValue());
+//				break;
+//			}
+
+		Menu menu = service.getById(20);
 
 		model.addAttribute("menu", menu);
 
