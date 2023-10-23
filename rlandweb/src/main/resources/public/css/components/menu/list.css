@@ -33,7 +33,6 @@
                 max-width: 810px;
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                grid-template-rows: repeat(2, 1fr);
                 /* grid-auto-flow: column; */
                 gap: var(--gap-5);
             }
