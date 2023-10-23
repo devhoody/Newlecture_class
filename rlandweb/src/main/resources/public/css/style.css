@@ -15,3 +15,7 @@ body{
 main{
     flex-grow: 1;
 }
+
+*{
+    box-sizing: border-box;
+}

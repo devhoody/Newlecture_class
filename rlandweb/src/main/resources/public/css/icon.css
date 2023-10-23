@@ -32,6 +32,7 @@
 
 .deco{
     display: inline-flex;
+    align-items: center;
 }
 
 .icon::before{
@@ -43,15 +44,18 @@
     mask-repeat: no-repeat;
     -webkit-mask-size: inherit;
     mask-size: inherit;
-    -webkit-mask-position: center;
-    mask-position: center;
+    /* -webkit-mask-position: center;
+    mask-position: center; */
+    
+    -webkit-mask-position: center 0px;
+    mask-position: center 0px;
 
     background-color: var(--color-base-9); 
 }
 
 .deco::before{
     --icon-size: var(--icon-size-1);
-
+    
     content: '';
     display: inline-block;
     width:var(--icon-size);
@@ -117,7 +121,15 @@
     mask-size: var(--icon-size);
 }
 
+.icon-size\:4{
+    --icon-size:var(--icon-size-4);
 
+    width:var(--icon-size);
+    height:var(--icon-size);
+    /* background-size: var(--icon-size-3); */
+    -webkit-mask-size: var(--icon-size);
+    mask-size: var(--icon-size);
+}
 
 .icon-color\:base-0::before{
     background-color: var(--color-base-0);
@@ -135,6 +147,16 @@
 
 .icon-color\:accent-1::before{
     background-color: var(--color-accent-1);
+}
+
+.icon-text-with{
+    align-items: center;
+    justify-content: center;
+    display: inline-flex;
+}
+
+.icon-text-with::before{
+    position: absolute;
 }
 
 .icon-count-with{
@@ -214,20 +236,45 @@
     mask-image: url(/image/icon/category.svg);
 }
 
+.icon-minus-circle::before{
+    -webkit-mask-image: url(/image/icon/minus-circle.svg);
+    mask-image: url(/image/icon/minus-circle.svg);
+}
+
+.icon-plus-circle::before{
+    -webkit-mask-image: url(/image/icon/plus-circle.svg);
+    mask-image: url(/image/icon/plus-circle.svg);
+}
+
 .icon-filter_list::before{
     -webkit-mask-image: url(/image/icon/filter_list.svg);
     mask-image: url(/image/icon/filter_list.svg);
-
-    -webkit-mask-position: center 0px;
-    mask-position: center 0px;
 }
 
 .icon-find::before{
     -webkit-mask-image: url(/image/icon/find.svg);
     mask-image: url(/image/icon/find.svg);
 
-    -webkit-mask-position: center 0px;
-    mask-position: center 0px;
+}
+
+.icon-basket_outline::before{
+    -webkit-mask-image: url(/image/icon/basket-outline.svg);
+    mask-image: url(/image/icon/basket-outline.svg);
+}
+
+.icon-basket_outline::before{
+    -webkit-mask-image: url(/image/icon/basket-outline.svg);
+    mask-image: url(/image/icon/basket-outline.svg);
+}
+
+.icon-google::before{
+    /* -webkit-mask-image: url(/image/icon/google.svg); */
+    /* mask-image: url(/image/icon/google.svg); */
+
+    mask-image: none;
+    background-color: transparent;
+    background-image: url(/image/icon/google.svg);
+    background-size: contain;
 }
 
 @media (max-width: 768px) {

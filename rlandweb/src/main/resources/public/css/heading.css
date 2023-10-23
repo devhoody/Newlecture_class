@@ -40,6 +40,13 @@
     color:var(--color-base-9);
 }
 
+.heading-7{
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
+    font-size:36px;
+    color:var(--color-base-9);
+}
+
 @media (min-width: 768px) {
     .md\:heading-1{
         font-family: 'Noto Sans KR', sans-serif;
