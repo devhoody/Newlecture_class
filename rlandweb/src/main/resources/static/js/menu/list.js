@@ -27,10 +27,11 @@ window.addEventListener("load", function () {
             return;
 
         console.log("hello");
-        // `/api/menus?c=${el.dataset.id}`
-        // `/api/menus/likes`
-        `/api/menus?id=${id}&isLike=${islike}}`
-        // `/api/
+
+        let response = fetch(`/api/likes/3`);
+        response.then(function(){
+            console.log(response.json());
+        })
     }
 
     function bind(json){
