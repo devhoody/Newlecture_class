@@ -18,14 +18,16 @@ public class MenuController {
     //    @ResponseBody
     @GetMapping
 //    @CrossOrigin(origins = "http://localhost:63342/") // 메서드에서 설정
-    @CrossOrigin(origins = "http://127.0.0.1:5500/")
+//    @CrossOrigin(origins = "http://127.0.0.1:5500/")
     public List<MenuView> list(
             @RequestParam(name="p", defaultValue = "1") Integer page,
             @RequestParam(name="c", required = false) Long categoryId,
             @RequestParam(name="q", required = false) String query) {
 
         List<MenuView> list = service.getViewList(page, query, categoryId);
+
         System.out.println(list);
+
         return list;
     }
 
