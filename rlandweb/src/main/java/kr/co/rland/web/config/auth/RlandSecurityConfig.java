@@ -24,7 +24,10 @@ public class RlandSecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        PasswordEncoder encoder = new BCryptPasswordEncoder();
+//        System.out.println(encoder.encode("123"));
+
+        return encoder;
     }
 
     @Bean
@@ -33,6 +36,8 @@ public class RlandSecurityConfig {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(
                         authorize -> authorize
+                                .requestMatchers("/admin/**")
+                                .hasAnyRole("ADMIN")
                                 .requestMatchers("/member/**")
                                 .hasAnyRole("ADMIN", "MEMBER")
                                 .anyRequest().permitAll())
@@ -47,18 +52,28 @@ public class RlandSecurityConfig {
         return http.build();
     }
 
-    @Bean
+//    @Bean
     public UserDetailsService jdbcUserDetailsService() {
         JdbcUserDetailsManager manager = new JdbcUserDetailsManager(dataSource);
 
         manager.setUsersByUsernameQuery("select user_name username, password, 1 enabled from member where user_name = ?");
 
-        manager.setAuthoritiesByUsernameQuery("select user_name username, 'ROLE_MEMBER' authority from member where user_name = ?");
+//        manager.setAuthoritiesByUsernameQuery("select user_name username, 'ROLE_MEMBER' authority from member where user_name = ?");
+
+        String sqlForAuthorities = "select "+
+        "   m.user_name username, " +
+        "   r.name authority "+
+        "from member_role mr "+
+        "left join member m on m.id = mr.member_id "+
+        "left join role r on r.id = mr.role_id " +
+        "where m.user_name = ?";
+
+        manager.setAuthoritiesByUsernameQuery(sqlForAuthorities);
 
         return manager;
     }
 
-    //    @Bean
+//    @Bean
     public UserDetailsService userDetailsService() {
         UserDetails user1 = User.builder()
                 .username("newlec")
