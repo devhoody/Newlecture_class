@@ -15,7 +15,7 @@
                 <li><a class="icon icon-alert icon-color:base-0 icon-count-with" href="">알림<span>2</span></a></li>
                 <li sec:authorize="isAnonymous()"><a class="icon icon-person icon-color:base-0"
                                                      href="/user/login">로그인</a></li>
-                <li sec:authorize="isAuthenticated()"><a class="icon icon-sign-out icon-color:base-0"
+                <li sec:authorize="isAuthenticated()"><span sec:authentication="principal.username"></span><a class="icon icon-sign-out icon-color:base-0"
                                                          href="/user/logout">로그아웃</a></li>
             </ul>
         </nav>
