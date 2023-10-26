@@ -1,6 +1,7 @@
 package kr.co.rland.web.controller;
 
 import jakarta.servlet.http.HttpSession;
+import kr.co.rland.web.entity.Member;
 import kr.co.rland.web.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,4 +45,28 @@ public class UserController {
 //        return "redirect:/user/login?error"; // 유효성 검사 실패시 이동
 //
 //    }
+    @GetMapping("signup")
+    public String sign(){
+
+        return "user/signup";
+    }
+
+    @PostMapping("signup")
+    public String signup(
+            String name,
+            String username,
+            String password,
+            String email
+    ){
+        Member member = Member.builder()
+                .email(email)
+                .name(name)
+                .password(password)
+                .username(username)
+                .build();
+
+        Member newOne = service.signUp(member);
+        return "redirect:./login";
+
+    }
 }
