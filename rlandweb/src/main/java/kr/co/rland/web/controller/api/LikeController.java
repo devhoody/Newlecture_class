@@ -13,6 +13,18 @@ public class LikeController {
     @Autowired
     private LikeService service;
 
+    @DeleteMapping("{ids}")
+    public boolean delete(
+            @PathVariable Long[] ids // /api/likes/2-menuid, 3-memberid
+    ){
+        Long menuId = ids[0];
+        Long memberId = ids[1];
+
+        boolean result = service.delete(menuId,memberId);
+
+        return result;
+    }
+
     @PostMapping
     public Like add(
             @RequestBody Like like
@@ -22,14 +34,4 @@ public class LikeController {
         return newOne;
     }
 
-//    @DeleteMapping("{menu-id}/members/{member-id}") // 로그인정보 사용 xx
-    @DeleteMapping("{menu-id}") // 로그인정보 사용 o
-    public Boolean delete(
-        @PathVariable("menu-id") Long menuId
-    ){
-        Long memberId = 1L;
-        boolean result = service.delete(menuId, memberId);
-
-        return result;
-    }
 }
