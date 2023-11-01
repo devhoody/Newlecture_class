@@ -7,4 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 public interface MemberRepository {
 
     Member findByUserName(String username);
+
+    void save(Member member);
+
+    Member last();
 }

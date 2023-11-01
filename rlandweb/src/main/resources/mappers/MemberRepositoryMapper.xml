@@ -8,4 +8,13 @@
         select * from member where user_name = #{username}
     </select>
 
+    <insert id = "save" parameterType="Member">
+        insert into member(user_name, email, password, name)
+        values (#{username}, #{email}, #{password}, #{name})
+    </insert>
+
+    <select id="last" resultType="Member">
+        SELECT * FROM member order by id desc limit 1
+    </select>
+
 </mapper>
