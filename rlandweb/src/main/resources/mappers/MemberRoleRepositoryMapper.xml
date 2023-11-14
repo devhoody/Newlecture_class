@@ -4,10 +4,14 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.co.rland.web.repository.MemberRoleRepository">
 
-    <insert id = "save" parameterType="MemberRole">
-        insert into member_role(member_id, role_id)
-        values (#{memberId}, #{roleId})
-    </insert>
+    <select id="findViewAllByMemberId" resultType="MemberRoleView">
+        select * from member_role_view
+        where member_id = #{memberId}
+    </select>
 
+    <insert id = "save" parameterType="MemberRole">
+        insert into member_role(member_id)
+        values (#{memberId})
+    </insert>
 
 </mapper>
