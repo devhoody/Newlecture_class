@@ -1,17 +1,21 @@
 package kr.co.rland.web.controller.admin;
 
 import kr.co.rland.web.config.auth.RlandUserDetails;
+import kr.co.rland.web.entity.Category;
 import kr.co.rland.web.entity.Menu;
+import kr.co.rland.web.entity.MenuView;
 import kr.co.rland.web.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.security.Principal;
+import java.util.List;
 
 
 @Controller("adminMenuController")
@@ -24,7 +28,8 @@ public class MenuController {
 //	@ResponseBody
 	@RequestMapping("list")
 	public String list(
-//			Authentication authentication
+			Model model,
+			Authentication authentication
 	) {
 
 //		RlandUserDetails userDetails = (RlandUserDetails) authentication.getPrincipal();
@@ -36,6 +41,11 @@ public class MenuController {
 
 		System.err.println(userDetails.getUsername());
 		System.out.println("리스트다");
+		List<Category> categoryList = service.getCategoryList();
+		model.addAttribute("categoryList", categoryList);
+
+		List<MenuView> list = service.getViewList(1,null,null);
+		model.addAttribute("list", list);
 
 		return "/admin/menu/list";
 	}

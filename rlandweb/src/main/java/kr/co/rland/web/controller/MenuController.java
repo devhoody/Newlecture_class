@@ -3,12 +3,10 @@ package kr.co.rland.web.controller;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 import kr.co.rland.web.entity.Category;
 import kr.co.rland.web.entity.Menu;
 import kr.co.rland.web.entity.MenuView;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -25,8 +23,8 @@ public class MenuController {
 	private MenuService service;
 
 //	@ResponseBody	
-	@RequestMapping("list")
-	public String list(Model model,
+	@RequestMapping("list-dom")
+	public String listDom(Model model,
 					   HttpServletRequest request,
 					   HttpServletResponse response) {
 
@@ -41,9 +39,20 @@ public class MenuController {
 		System.out.println(list);
 		System.out.println(categoryList);
 
-		return "menu/list"; // template에서 list.html을 찾음.
+//		model.addAttribute("list", list);
+//		model.addAttribute("categoryList", categoryList);
+
+		return "/menu/list"; // template에서 list.html을 찾음.
 	}
 
+	@RequestMapping("list")
+	public String list(Model model) {
+
+		List<Category> categoryList = service.getCategoryList();
+		model.addAttribute("categoryList", categoryList);
+		List<MenuView> list = service.getViewList(1,null,null);
+		return "/menu/list-vue"; // template에서 list.html을 찾음.
+	}
 
 	@PostMapping("reg")
 	public String reg(
