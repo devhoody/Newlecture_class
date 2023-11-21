@@ -1,34 +1,39 @@
-export default class Modal{
+export default class HTMLModalPanelElement extends HTMLElement{
 
     #title;
     #content;
     #onok;
-    constructor(args) {
+    constructor() {
+        super();
         //속성들
-        this.#title = args.title || "확인";
-        this.#content = args.content || "삭제하시겠습니까?";
-        this.#onok = args.onok;
+        this.#title = "확인";
+        this.#content = "삭제하시겠습니까?";
+        // this.#onok = args.onok;
+        console.log(this.dir);
 
-        this.root = this.createRootElement();
-
-        this.host = document.createElement("div");
-        document.body.append(this.host);
+        // CSS 한번에 떄려넣기 : style.cssText
+        // this.style.cssText = `position: absolute;
+        //                       left: 0px;
+        //                       top: 0px;
+        //                       width: 100%;
+        //                       height: 100%;
+        //                       background-color:black;
+        //                       z-index: 3000`
 
         const sheet = new CSSStyleSheet();
         sheet.replaceSync(this.getStyleText());
-
-        // host에 쉐도우 추가
-        const shadow = this.host.attachShadow({mode: "open"});
+        this.root = this.createRootElement();
+        const shadow = this.attachShadow({mode:"open"});
         shadow.adoptedStyleSheets = [sheet];
         shadow.appendChild(this.root);
 
         // 취소버튼
-        const cancelButton = this.root.querySelector(".btn-cancel");
-        cancelButton.onclick = this.btnCancelHandler.bind(this);
+        // const cancelButton = this.root.querySelector(".btn-cancel");
+        // cancelButton.onclick = this.btnCancelHandler.bind(this);
 
-        // 확인버튼
-        const OkButton = this.root.querySelector(".btn-ok");
-        OkButton.onclick = this.btnOkHandler.bind(this);
+        // // 확인버튼
+        // const OkButton = this.root.querySelector(".btn-ok");
+        // OkButton.onclick = this.btnOkHandler.bind(this);
 
     }
 
@@ -51,14 +56,14 @@ export default class Modal{
         this.#title = title;
 
         // root문서와의 title 연결
-        this.root.querySelector(".title").innerText = this.#title;
+        // this.root.querySelector(".title").innerText = this.#title;
     }
 
     set content(content){
         this.#content = content
 
         // root문서와의 title 연결
-        this.root.querySelector(".content").innerText = this.#content;
+        // this.root.querySelector(".content").innerText = this.#content;
     }
 
     set onok(CallBack){
@@ -69,14 +74,14 @@ export default class Modal{
         console.log("show");
 
 
-        setTimeout(()=>{
-            this.root.classList.add("show");
-        }, 20);
+        // setTimeout(()=>{
+        //     this.root.classList.add("show");
+        // }, 20);
     }
 
     close() {
-        this.root.classList.remove("show");
-        this.root.classList.add("close");
+        // this.root.classList.remove("show");
+        // this.root.classList.add("close");
     }
 
     getStyleText(){
@@ -156,7 +161,7 @@ export default class Modal{
             <div class="frame">
                 <h1 class="title">${this.#title}</h1>
                 <div class="contents">
-                    ${this.#content}
+                    <slot name="modal-content"></slot> <!-- slot 추가 -->
                 </div>
                 <div class="command">
                     <button class="btn-ok btn btn-main bg-color:main-4 pv:1 font-size:-1 ">확인</button>
@@ -167,7 +172,6 @@ export default class Modal{
         return section;
     }
 
-
-
-
 }
+
+customElements.define("modal-panell", HTMLModalPanelElement);
