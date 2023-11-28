@@ -1,18 +1,18 @@
 .icon{
     --icon-size: var(--icon-size-2);
-    
+
     display: inline-block;
     width:var(--icon-size);
     height:var(--icon-size);
     background-size: var(--icon-size);
     -webkit-mask-size: var(--icon-size);
     mask-size: var(--icon-size);
-    
+
     box-sizing: border-box;
     overflow: hidden;
     padding: 0px;
     border: none;
-    background-color: transparent;    
+    background-color: transparent;
 }
 
 .icon\:none{
@@ -22,12 +22,12 @@
     background-size: initial;
     -webkit-mask-size: initial;
     mask-size: initial;
-    
+
     box-sizing: inherit;
     overflow: initial;
     padding: initial;
     border: initial;
-    background-color: initial;    
+    background-color: initial;
 }
 
 .deco{
@@ -46,16 +46,16 @@
     mask-size: inherit;
     /* -webkit-mask-position: center;
     mask-position: center; */
-    
+
     -webkit-mask-position: center 0px;
     mask-position: center 0px;
 
-    background-color: var(--color-base-9); 
+    background-color: var(--color-base-9);
 }
 
 .deco::before{
     --icon-size: var(--icon-size-1);
-    
+
     content: '';
     display: inline-block;
     width:var(--icon-size);
@@ -67,7 +67,7 @@
     -webkit-mask-position: center;
     mask-position: center;
 
-    background-color: var(--color-base-9); 
+    background-color: var(--color-base-9);
 }
 
 .icon\:none::before{
@@ -76,7 +76,7 @@
     display: initial;
     width:initial;
     height:initial;
-    
+
     -webkit-mask-repeat: initial;
     mask-repeat: no-repeat;
     -webkit-mask-size: inherit;
@@ -84,7 +84,7 @@
     -webkit-mask-position: center;
     mask-position: center;
 
-    background-color: var(--color-base-9); 
+    background-color: var(--color-base-9);
 }
 
 .icon-hover:hover::before{
@@ -184,7 +184,7 @@
 
 .icon-settings::before{
     -webkit-mask-image: url(/image/icon/settings.svg);
-    mask-image: url(/image/icon/settings.svg);    
+    mask-image: url(/image/icon/settings.svg);
 }
 
 .icon-person::before{
@@ -277,24 +277,56 @@
     background-size: contain;
 }
 
+.icon-pancel::before{
+    -webkit-mask-image: url(/image/icon/pancel.svg);
+    mask-image: url(/image/icon/pancel.svg);
+}
+
+.icon-trash::before{
+    -webkit-mask-image: url(/image/icon/trash.svg);
+    mask-image: url(/image/icon/trash.svg);
+
+    -webkit-mask-position: center -2px;
+}
+
+.icon-trash::before{
+    -webkit-mask-image: url(/image/icon/image.svg);
+    mask-image: url(/image/icon/image.svg);
+}
+
+.icon-check_circle::before{
+    -webkit-mask-image: url(/image/icon/check_circle.svg);
+    mask-image: url(/image/icon/check_circle.svg);
+}
+
+.icon-cancel_circle::before{
+    -webkit-mask-image: url(/image/icon/cancel_circle.svg);
+    mask-image: url(/image/icon/cancel_circle.svg);
+}
+
+.icon-add_circle::before{
+    -webkit-mask-image: url(/image/icon/add_circle.svg);
+    mask-image: url(/image/icon/add_circle.svg);
+}
+
 @media (max-width: 768px) {
     .sm\:icon{
         --icon-size: var(--icon-size-2);
-        
+
         display: inline-block;
         width:var(--icon-size);
         height:var(--icon-size);
         background-size: var(--icon-size);
         -webkit-mask-size: var(--icon-size);
         mask-size: var(--icon-size);
-        
+
         box-sizing: border-box;
         overflow: hidden;
         padding: 0px;
         border: none;
-        background-color: transparent;    
+        background-color: transparent;
     }
-    
+
     .sm\:icon\:none{
         display: initial;
         width:initial;
@@ -302,18 +334,18 @@
         background-size: initial;
         -webkit-mask-size: initial;
         mask-size: initial;
-        
+
         box-sizing: inherit;
         overflow: initial;
         padding: initial;
         border: initial;
-        background-color: initial;    
+        background-color: initial;
     }
-    
+
     .sm\:deco{
         display: inline-flex;
     }
-    
+
     .sm\:icon::before{
         content: '';
         display: inline-block;
@@ -325,13 +357,13 @@
         mask-size: inherit;
         -webkit-mask-position: center;
         mask-position: center;
-    
-        background-color: var(--color-base-9); 
+
+        background-color: var(--color-base-9);
     }
-    
+
     .sm\:deco::before{
         --icon-size: var(--icon-size-1);
-    
+
         content: '';
         display: inline-block;
         width:var(--icon-size);
@@ -342,15 +374,15 @@
         mask-size: var(--icon-size);
         -webkit-mask-position: center;
         mask-position: center;
-    
-        background-color: var(--color-base-9); 
+
+        background-color: var(--color-base-9);
     }
-    
+
 
     .sm\:icon-filter_list::before{
         -webkit-mask-image: url(/image/icon/filter_list.svg);
         mask-image: url(/image/icon/filter_list.svg);
-    
+
         -webkit-mask-position: center 0px;
         mask-position: center 0px;
     }
@@ -362,13 +394,13 @@
         height:var(--icon-size-1);
         background-size: var(--icon-size-1);
     }
-    
+
     .md\:icon-size\:2{
         width:var(--icon-size-2);
         height:var(--icon-size-2);
         background-size: var(--icon-size-2);
     }
-    
+
     .md\:icon-size\:3{
         width:var(--icon-size-3);
         height:var(--icon-size-3);
