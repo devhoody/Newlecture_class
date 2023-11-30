@@ -25,7 +25,7 @@ public class RlandSecurityConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
         PasswordEncoder encoder = new BCryptPasswordEncoder();
-//        System.out.println(encoder.encode("123"));
+//        System.out.println(encoder.encode("111"));
 
         return encoder;
     }
@@ -33,7 +33,8 @@ public class RlandSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-        http.csrf(csrf -> csrf.disable())
+        http
+//                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(
                         authorize -> authorize
                                 .requestMatchers("/admin/**")
