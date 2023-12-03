@@ -6,16 +6,6 @@ window.addEventListener("load", function () {
     let categoryFilterSection = document.querySelector(".category-filter");
     let categoryUl = categoryFilterSection.querySelector("ul");
     let currentCategory = categoryUl.querySelector("li:first-child a");
-    // let hearts = document.querySelectorAll(".menu-card-list .btn-like");
-    //
-    //
-    //
-    // for(let i=0; i<hearts.length; i++){
-    //     hearts[i].onclick = function(e){
-    //         e.preventDefault();
-    //         console.log("hello");
-    //     }
-    // }
 
     let content = document.querySelector(".menu-card-list .content");
 
